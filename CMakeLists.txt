@@ -8,19 +8,39 @@ qt_standard_project_setup()
 qt_add_executable(GestionVente
     WIN32 MACOSX_BUNDLE
     main.cpp
-    mainwindow.cpp
-    mainwindow.h
-    mainwindow.ui
-    database.h
-    database.cpp
-    clientwindow.h
-    clientwindow.cpp
-    materielwindow.h
-    materielwindow.cpp
-    achatwindow.h
-    achatwindow.cpp
-    style.h
+
+    # --- ui : accueil ---
+    ui/mainwindow.h
+    ui/mainwindow.cpp
+    ui/mainwindow.ui
+
+    # --- clients ---
+    clients/clientwindow.h
+    clients/clientwindow.cpp
+    clients/client.h
+    clients/client.cpp
+
+    # --- materiels ---
+    materiels/materielwindow.h
+    materiels/materielwindow.cpp
+    materiels/materiel.h
+    materiels/materiel.cpp
+
+    # --- achats ---
+    achats/achatwindow.h
+    achats/achatwindow.cpp
+    achats/achat.h
+    achats/achat.cpp
+
+    # --- commun ---
+    commun/modeles.h
+    commun/database.h
+    commun/database.cpp
+    commun/style.h
 )
+
+# Permet d'écrire #include "clients/client.h" depuis n'importe quel dossier
+target_include_directories(GestionVente PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
 
 target_link_libraries(GestionVente
     PRIVATE
