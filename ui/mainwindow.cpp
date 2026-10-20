@@ -3,6 +3,7 @@
 #include "clients/clientwindow.h"
 #include "materiels/materielwindow.h"
 #include "achats/achatwindow.h"
+#include "ventes/ventewindow.h"
 
 #include <QHBoxLayout>
 #include <QVBoxLayout>
@@ -19,7 +20,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     QWidget *central = new QWidget;
     central->setObjectName("central");
-    central->setStyleSheet("#central { background-color: rgb(214, 183, 244); }");
+    central->setStyleSheet("#central { background-color: rgb(240, 242, 245); }");
     setCentralWidget(central);
 
     QVBoxLayout *principal = new QVBoxLayout(central);
@@ -60,13 +61,17 @@ MainWindow::MainWindow(QWidget *parent)
     QPushButton *carteMat = creerCarte("💻", "Materiel", "#2bb58a", "#1a9370");
     QPushButton *carteCli = creerCarte("👥", "Client",   "#2f78e0", "#1f5cc0");
     QPushButton *carteAch = creerCarte("🛒", "Achat",    "#ff9420", "#f07a10");
+    QPushButton *carteVen = creerCarte("💰", "Vente",    "#a855f7", "#7e22ce");
+
 
     QHBoxLayout *layCartes = new QHBoxLayout;
-    layCartes->setSpacing(25);
+    layCartes->setSpacing(40);
+    layCartes->setContentsMargins(50, 0, 50, 0);
     layCartes->addStretch();
     layCartes->addWidget(carteMat);
     layCartes->addWidget(carteCli);
     layCartes->addWidget(carteAch);
+    layCartes->addWidget(carteVen);
     layCartes->addStretch();
 
     principal->addStretch(1);
@@ -91,13 +96,18 @@ MainWindow::MainWindow(QWidget *parent)
         AchatWindow fenetre(this);
         fenetre.exec();
     });
+
+    connect(carteVen, &QPushButton::clicked, this, [this]() {
+        VenteWindow fenetre(this);
+        fenetre.exec();
+    });
 }
 
 QPushButton *MainWindow::creerCarte(const QString &icone, const QString &titre,
                                     const QString &couleur1, const QString &couleur2)
 {
     QPushButton *carte = new QPushButton;
-    carte->setFixedSize(250, 210);
+    carte->setFixedSize(200, 180);
     carte->setCursor(Qt::PointingHandCursor);
     carte->setStyleSheet(QString(
                              "QPushButton { background: qlineargradient(x1:0, y1:0, x2:1, y2:1,"

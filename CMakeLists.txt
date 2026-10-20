@@ -32,11 +32,18 @@ qt_add_executable(GestionVente
     achats/achat.h
     achats/achat.cpp
 
+    # --- ventes (listage) ---
+    ventes/ventes.h
+    ventes/ventes.cpp
+    ventes/ventewindow.h
+    ventes/ventewindow.cpp
+
     # --- commun ---
     commun/modeles.h
     commun/database.h
     commun/database.cpp
     commun/style.h
+
 )
 
 # Permet d'écrire #include "clients/client.h" depuis n'importe quel dossier
