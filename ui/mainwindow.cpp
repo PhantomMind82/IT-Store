@@ -1,8 +1,8 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "clientwindow.h"
-#include "materielwindow.h"
-#include "achatwindow.h"
+#include "clients/clientwindow.h"
+#include "materiels/materielwindow.h"
+#include "achats/achatwindow.h"
 
 #include <QHBoxLayout>
 #include <QVBoxLayout>

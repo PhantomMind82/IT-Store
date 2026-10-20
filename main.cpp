@@ -1,5 +1,5 @@
-#include "mainwindow.h"
-#include "database.h"
+#include "ui/mainwindow.h"
+#include "commun/database.h"
 
 #include <QApplication>
 #include <QMessageBox>
