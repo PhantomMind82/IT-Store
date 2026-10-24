@@ -27,7 +27,6 @@ MainWindow::MainWindow(QWidget *parent)
     principal->setContentsMargins(0, 0, 0, 0);
     principal->setSpacing(0);
 
-    // ---------- Bandeau bleu ----------
     QWidget *entete = new QWidget;
     entete->setObjectName("entete");
     entete->setFixedHeight(85);
@@ -48,7 +47,6 @@ MainWindow::MainWindow(QWidget *parent)
 
     principal->addWidget(entete);
 
-    // ---------- Titre ----------
     QLabel *titre = new QLabel("Bienvenue sur IT Store");
     titre->setAlignment(Qt::AlignCenter);
     titre->setStyleSheet("color: #0f2350; font-size: 38px; font-weight: bold;");
@@ -57,7 +55,6 @@ MainWindow::MainWindow(QWidget *parent)
     sousTitre->setAlignment(Qt::AlignCenter);
     sousTitre->setStyleSheet("color: #5a6785; font-size: 18px;");
 
-    // ---------- Cartes ----------
     QPushButton *carteMat = creerCarte("💻", "Materiel", "#2bb58a", "#1a9370");
     QPushButton *carteCli = creerCarte("👥", "Client",   "#2f78e0", "#1f5cc0");
     QPushButton *carteAch = creerCarte("🛒", "Achat",    "#ff9420", "#f07a10");
@@ -81,7 +78,6 @@ MainWindow::MainWindow(QWidget *parent)
     principal->addLayout(layCartes);
     principal->addStretch(2);
 
-    // ---------- Actions ----------
     connect(carteCli, &QPushButton::clicked, this, [this]() {
         ClientWindow fenetre(this);
         fenetre.exec();

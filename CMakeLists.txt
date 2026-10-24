@@ -27,10 +27,26 @@ qt_add_executable(GestionVente
     materiels/materiel.cpp
 
     # --- achats ---
-    achats/achatwindow.h
-    achats/achatwindow.cpp
     achats/achat.h
     achats/achat.cpp
+    achats/achatstyle.h
+    achats/achatsui.h
+    achats/achatsui.cpp
+    achats/logowidget.h
+    achats/logowidget.cpp
+    achats/achatwindow.h
+    achats/achatwindow.cpp
+    achats/achatwindow.ui
+    achats/nouveau/nouveauachatdialog.h
+    achats/nouveau/nouveauachatdialog.cpp
+    achats/nouveau/nouveauachatdialog.ui
+    achats/suppression/supprimerachatdialog.h
+    achats/suppression/supprimerachatdialog.cpp
+    achats/suppression/supprimerachatdialog.ui
+    achats/facture/facturedialog.h
+    achats/facture/facturedialog.cpp
+    achats/facture/facturedialog.ui
+    achats/facture/nombreenlettres.h
 
     # --- ventes (listage) ---
     ventes/ventes.h
@@ -43,7 +59,6 @@ qt_add_executable(GestionVente
     commun/database.h
     commun/database.cpp
     commun/style.h
-
 )
 
 # Permet d'écrire #include "clients/client.h" depuis n'importe quel dossier
