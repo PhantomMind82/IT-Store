@@ -2,16 +2,12 @@
 
 #include <QDialog>
 
-<<<<<<< HEAD
 #include "commun/modeles.h"   // Achat, Client, Materiel et les listes ListeAchats, ListeClients, ListeMateriels
 
-=======
->>>>>>> 8c2295e (Crafting)
 namespace Ui {
 class AchatWindow;
 }
 
-<<<<<<< HEAD
 /**
  * @brief Fenêtre principale de la section « Achats » (maquette : écran « Achats »).
  *
@@ -26,8 +22,6 @@ class AchatWindow;
  * Quand la base de données sera branchée, il suffira de remplir
  * m_achats / m_clients / m_materiels dans chargerDonnees().
  */
-=======
->>>>>>> 8c2295e (Crafting)
 class AchatWindow : public QDialog
 {
     Q_OBJECT
@@ -36,22 +30,16 @@ public:
     explicit AchatWindow(QWidget *parent = nullptr);
     ~AchatWindow() override;
 
-<<<<<<< HEAD
     // Permettent à un autre module (ou à la base de données) de fournir les données.
     void setAchats(const ListeAchats &achats);
     void setClients(const ListeClients &clients);
     void setMateriels(const ListeMateriels &materiels);
 
 private slots:
-=======
-private slots:
-    void chargerTable();
->>>>>>> 8c2295e (Crafting)
     void onNouveau();
     void onModifier();
     void onFacture();
     void onSupprimer();
-<<<<<<< HEAD
     void rafraichir();          // redessine le tableau (tient compte de la recherche)
 
 private:
@@ -68,12 +56,4 @@ private:
     ListeAchats m_achats;
     ListeClients m_clients;
     ListeMateriels m_materiels;
-=======
-
-private:
-    int idSelectionne() const;
-    int idChoisi(const QString &titre);
-
-    Ui::AchatWindow *ui;
->>>>>>> 8c2295e (Crafting)
 };

@@ -30,3 +30,4 @@ CMakeLists.txt.user*
 # Base de données locale
 *.db
 *.sqlite
+!commun/itstore-template.db

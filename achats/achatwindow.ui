@@ -19,54 +19,6 @@
   <property name="windowTitle">
    <string>IT Store - Achats</string>
   </property>
-<<<<<<< HEAD
-=======
-  <property name="styleSheet">
-   <string notr="true">
-QWidget { font-family: &quot;Segoe UI&quot;, &quot;Ubuntu&quot;, &quot;Noto Sans&quot;, &quot;DejaVu Sans&quot;, sans-serif; font-size: 15px; color: #2B1608; }
-QLabel { background: transparent; }
-QPushButton { outline: none; }
-QDialog#AchatWindow { background: #FAF3EC; }
-
-QFrame#entete { background: qlineargradient(x1:0, y1:0, x2:1, y2:0, stop:0 #D4590A, stop:1 #B84A05); }
-QLabel#titreMarque { color: #FFFFFF; font-family: Georgia, &quot;Times New Roman&quot;, serif; font-size: 38px; font-weight: 700; }
-QLabel#slogan { color: #FFFFFF; }
-
-QPushButton#btnAccueil { min-height: 44px; padding: 0 18px; border: 0; border-radius: 12px; background: #FFFFFF; color: #2B1608; font-weight: 700; }
-QPushButton#btnAccueil:hover { background: #FFF1E2; }
-QLabel#titrePage { font-size: 32px; font-weight: 700; }
-QLabel#sousTitre { color: #7A5C45; }
-QFrame#boiteRecherche { min-height: 48px; background: #FFFFFF; border: 1px solid #E6CFB8; border-radius: 12px; }
-QLineEdit#champRecherche { min-width: 260px; border: 0; background: transparent; color: #2B1608; selection-background-color: #FFEBD6; selection-color: #2B1608; }
-
-QPushButton#btnNouveau, QPushButton#btnModifier, QPushButton#btnFacture, QPushButton#btnSupprimer {
-    min-height: 88px; padding: 0 22px; border: 0; border-radius: 14px;
-    color: #FFFFFF; font-size: 22px; font-weight: 700; text-align: left; }
-QPushButton#btnNouveau   { background: qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 #EA7210, stop:1 #D95F08); }
-QPushButton#btnNouveau:hover   { background: qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 #F5801E, stop:1 #E56A10); }
-QPushButton#btnModifier  { background: qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 #5B3A22, stop:1 #3F2614); }
-QPushButton#btnModifier:hover  { background: qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 #6B462A, stop:1 #4D301B); }
-QPushButton#btnFacture   { background: qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 #A8620B, stop:1 #8C4F07); }
-QPushButton#btnFacture:hover   { background: qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 #B87216, stop:1 #9C5A0D); }
-QPushButton#btnSupprimer { background: qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 #D64545, stop:1 #B62F2F); }
-QPushButton#btnSupprimer:hover { background: qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 #E25757, stop:1 #C73B3B); }
-
-QFrame#carte { background: #FFFFFF; border-radius: 16px; }
-QTableWidget#tableAchats { background: transparent; border: 0; outline: 0; selection-background-color: #FFEBD6; selection-color: #2B1608; }
-QTableWidget#tableAchats::item { padding: 8px 20px; border-top: 1px solid #F0E1D2; }
-QTableWidget#tableAchats::item:hover { background: #FFF8F1; }
-QTableWidget#tableAchats::item:selected { background: #FFEBD6; color: #2B1608; font-weight: 700; }
-QTableWidget#tableAchats::item:selected:!active { background: #FFEBD6; color: #2B1608; }
-QTableWidget#tableAchats QHeaderView { background: transparent; }
-QTableWidget#tableAchats QHeaderView::section { background: #FFF8F1; color: #7A5C45; border: 0; padding: 0 20px; font-size: 12px; font-weight: 700; }
-QTableWidget#tableAchats QHeaderView::section:first { border-top-left-radius: 16px; }
-QTableWidget#tableAchats QHeaderView::section:last { border-top-right-radius: 16px; }
-
-QLabel#labelAide, QLabel#labelTotalTexte { color: #7A5C45; }
-QLabel#labelTotalValeur { font-size: 22px; font-weight: 700; color: #2B1608; }
-</string>
-  </property>
->>>>>>> 8c2295e (Crafting)
   <layout class="QVBoxLayout" name="layoutPrincipal">
    <property name="spacing">
     <number>0</number>
@@ -102,27 +54,7 @@ QLabel#labelTotalValeur { font-size: 22px; font-weight: 700; color: #2B1608; }
        <number>18</number>
       </property>
       <item>
-<<<<<<< HEAD
        <widget class="LogoWidget" name="logo" native="true"/>
-=======
-       <widget class="QLabel" name="logo">
-        <property name="minimumSize">
-         <size>
-          <width>48</width>
-          <height>48</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>48</width>
-          <height>48</height>
-         </size>
-        </property>
-        <property name="pixmap">
-         <pixmap resource="achats.qrc">:/achats/assets/logo.svg</pixmap>
-        </property>
-       </widget>
->>>>>>> 8c2295e (Crafting)
       </item>
       <item>
        <widget class="QLabel" name="titreMarque">
@@ -134,11 +66,7 @@ QLabel#labelTotalValeur { font-size: 22px; font-weight: 700; color: #2B1608; }
       <item>
        <spacer name="spacerEntete">
         <property name="orientation">
-<<<<<<< HEAD
          <enum>Qt::Horizontal</enum>
-=======
-         <enum>Qt::Orientation::Horizontal</enum>
->>>>>>> 8c2295e (Crafting)
         </property>
         <property name="sizeHint" stdset="0">
          <size>
@@ -201,30 +129,9 @@ QLabel#labelTotalValeur { font-size: 22px; font-weight: 700; color: #2B1608; }
           </property>
           <item>
            <widget class="QLabel" name="iconeTitre">
-<<<<<<< HEAD
             <property name="text">
              <string/>
             </property>
-=======
-            <property name="minimumSize">
-             <size>
-              <width>56</width>
-              <height>56</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>56</width>
-              <height>56</height>
-             </size>
-            </property>
-            <property name="text">
-             <string/>
-            </property>
-            <property name="pixmap">
-             <pixmap resource="achats.qrc">:/achats/assets/icone-panier.svg</pixmap>
-            </property>
->>>>>>> 8c2295e (Crafting)
            </widget>
           </item>
           <item>
@@ -253,11 +160,7 @@ QLabel#labelTotalValeur { font-size: 22px; font-weight: 700; color: #2B1608; }
         <item>
          <spacer name="spacerBarre">
           <property name="orientation">
-<<<<<<< HEAD
            <enum>Qt::Horizontal</enum>
-=======
-           <enum>Qt::Orientation::Horizontal</enum>
->>>>>>> 8c2295e (Crafting)
           </property>
           <property name="sizeHint" stdset="0">
            <size>
@@ -287,30 +190,9 @@ QLabel#labelTotalValeur { font-size: 22px; font-weight: 700; color: #2B1608; }
            </property>
            <item>
             <widget class="QLabel" name="iconeRecherche">
-<<<<<<< HEAD
              <property name="text">
               <string/>
              </property>
-=======
-             <property name="minimumSize">
-              <size>
-               <width>24</width>
-               <height>24</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>24</width>
-               <height>24</height>
-              </size>
-             </property>
-             <property name="text">
-              <string/>
-             </property>
-             <property name="pixmap">
-              <pixmap resource="achats.qrc">:/achats/assets/loupe.svg</pixmap>
-             </property>
->>>>>>> 8c2295e (Crafting)
             </widget>
            </item>
            <item>
@@ -341,19 +223,6 @@ QLabel#labelTotalValeur { font-size: 22px; font-weight: 700; color: #2B1608; }
           <property name="text">
            <string>Nouvel achat</string>
           </property>
-<<<<<<< HEAD
-=======
-          <property name="icon">
-           <iconset resource="achats.qrc">
-            <normaloff>:/achats/assets/btn-plus.svg</normaloff>:/achats/assets/btn-plus.svg</iconset>
-          </property>
-          <property name="iconSize">
-           <size>
-            <width>62</width>
-            <height>48</height>
-           </size>
-          </property>
->>>>>>> 8c2295e (Crafting)
           <property name="autoDefault">
            <bool>false</bool>
           </property>
@@ -367,19 +236,6 @@ QLabel#labelTotalValeur { font-size: 22px; font-weight: 700; color: #2B1608; }
           <property name="text">
            <string>Modifier</string>
           </property>
-<<<<<<< HEAD
-=======
-          <property name="icon">
-           <iconset resource="achats.qrc">
-            <normaloff>:/achats/assets/btn-crayon.svg</normaloff>:/achats/assets/btn-crayon.svg</iconset>
-          </property>
-          <property name="iconSize">
-           <size>
-            <width>62</width>
-            <height>48</height>
-           </size>
-          </property>
->>>>>>> 8c2295e (Crafting)
           <property name="autoDefault">
            <bool>false</bool>
           </property>
@@ -393,19 +249,6 @@ QLabel#labelTotalValeur { font-size: 22px; font-weight: 700; color: #2B1608; }
           <property name="text">
            <string>Facture PDF</string>
           </property>
-<<<<<<< HEAD
-=======
-          <property name="icon">
-           <iconset resource="achats.qrc">
-            <normaloff>:/achats/assets/btn-document.svg</normaloff>:/achats/assets/btn-document.svg</iconset>
-          </property>
-          <property name="iconSize">
-           <size>
-            <width>62</width>
-            <height>48</height>
-           </size>
-          </property>
->>>>>>> 8c2295e (Crafting)
           <property name="autoDefault">
            <bool>false</bool>
           </property>
@@ -419,19 +262,6 @@ QLabel#labelTotalValeur { font-size: 22px; font-weight: 700; color: #2B1608; }
           <property name="text">
            <string>Supprimer</string>
           </property>
-<<<<<<< HEAD
-=======
-          <property name="icon">
-           <iconset resource="achats.qrc">
-            <normaloff>:/achats/assets/btn-corbeille.svg</normaloff>:/achats/assets/btn-corbeille.svg</iconset>
-          </property>
-          <property name="iconSize">
-           <size>
-            <width>62</width>
-            <height>48</height>
-           </size>
-          </property>
->>>>>>> 8c2295e (Crafting)
           <property name="autoDefault">
            <bool>false</bool>
           </property>
@@ -459,7 +289,6 @@ QLabel#labelTotalValeur { font-size: 22px; font-weight: 700; color: #2B1608; }
          </property>
          <item>
           <widget class="QTableWidget" name="tableAchats">
-<<<<<<< HEAD
            <property name="frameShape">
             <enum>QFrame::NoFrame</enum>
            </property>
@@ -471,24 +300,6 @@ QLabel#labelTotalValeur { font-size: 22px; font-weight: 700; color: #2B1608; }
            </property>
            <property name="selectionBehavior">
             <enum>QAbstractItemView::SelectRows</enum>
-=======
-           <property name="styleSheet">
-            <string notr="true">#tableAchat{
-	color:black;	
-}</string>
-           </property>
-           <property name="frameShape">
-            <enum>QFrame::Shape::NoFrame</enum>
-           </property>
-           <property name="editTriggers">
-            <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
-           </property>
-           <property name="selectionMode">
-            <enum>QAbstractItemView::SelectionMode::SingleSelection</enum>
-           </property>
-           <property name="selectionBehavior">
-            <enum>QAbstractItemView::SelectionBehavior::SelectRows</enum>
->>>>>>> 8c2295e (Crafting)
            </property>
            <property name="showGrid">
             <bool>false</bool>
@@ -496,21 +307,9 @@ QLabel#labelTotalValeur { font-size: 22px; font-weight: 700; color: #2B1608; }
            <property name="columnCount">
             <number>6</number>
            </property>
-<<<<<<< HEAD
            <attribute name="verticalHeaderVisible">
             <bool>false</bool>
            </attribute>
-=======
-           <attribute name="horizontalHeaderMinimumSectionSize">
-            <number>80</number>
-           </attribute>
-           <attribute name="verticalHeaderVisible">
-            <bool>false</bool>
-           </attribute>
-           <attribute name="verticalHeaderDefaultSectionSize">
-            <number>56</number>
-           </attribute>
->>>>>>> 8c2295e (Crafting)
            <column>
             <property name="text">
              <string>N°</string>
@@ -530,12 +329,6 @@ QLabel#labelTotalValeur { font-size: 22px; font-weight: 700; color: #2B1608; }
             <property name="text">
              <string>QTÉ</string>
             </property>
-<<<<<<< HEAD
-=======
-            <property name="textAlignment">
-             <set>AlignTrailing|AlignVCenter</set>
-            </property>
->>>>>>> 8c2295e (Crafting)
            </column>
            <column>
             <property name="text">
@@ -546,12 +339,6 @@ QLabel#labelTotalValeur { font-size: 22px; font-weight: 700; color: #2B1608; }
             <property name="text">
              <string>MONTANT</string>
             </property>
-<<<<<<< HEAD
-=======
-            <property name="textAlignment">
-             <set>AlignTrailing|AlignVCenter</set>
-            </property>
->>>>>>> 8c2295e (Crafting)
            </column>
           </widget>
          </item>
@@ -573,11 +360,7 @@ QLabel#labelTotalValeur { font-size: 22px; font-weight: 700; color: #2B1608; }
         <item>
          <spacer name="spacerPied">
           <property name="orientation">
-<<<<<<< HEAD
            <enum>Qt::Horizontal</enum>
-=======
-           <enum>Qt::Orientation::Horizontal</enum>
->>>>>>> 8c2295e (Crafting)
           </property>
           <property name="sizeHint" stdset="0">
            <size>
@@ -608,7 +391,6 @@ QLabel#labelTotalValeur { font-size: 22px; font-weight: 700; color: #2B1608; }
    </item>
   </layout>
  </widget>
-<<<<<<< HEAD
  <customwidgets>
   <customwidget>
    <class>LogoWidget</class>
@@ -617,10 +399,5 @@ QLabel#labelTotalValeur { font-size: 22px; font-weight: 700; color: #2B1608; }
   </customwidget>
  </customwidgets>
  <resources/>
-=======
- <resources>
-  <include location="achats.qrc"/>
- </resources>
->>>>>>> 8c2295e (Crafting)
  <connections/>
 </ui>
