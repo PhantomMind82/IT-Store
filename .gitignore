@@ -31,3 +31,4 @@ CMakeLists.txt.user*
 *.db
 *.sqlite
 !commun/itstore-template.db
+!commun/itstore.db
