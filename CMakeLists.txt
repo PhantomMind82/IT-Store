@@ -70,7 +70,6 @@ qt_add_executable(GestionVente
     commun/modeles.h
     commun/database.h
     commun/database.cpp
-    commun/database.qrc
     commun/factures/factures.qrc
     commun/style.h
     achats/achats.qrc

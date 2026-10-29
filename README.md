@@ -19,13 +19,13 @@ cmake -S . -B build -DCMAKE_PREFIX_PATH=/chemin/vers/Qt/6.x/kit
 cmake --build build
 ```
 
-Chaque ordinateur doit avoir Qt et un compilateur compatibles. Les fichiers sources, interfaces `.ui`, ressources `.qrc` et la base modele sont dans Git; les dossiers de build ne le sont pas.
+Chaque ordinateur doit avoir Qt et un compilateur compatibles. Les fichiers sources, interfaces `.ui` et ressources `.qrc` sont dans Git; les dossiers de build ne le sont pas.
 
 ## Base de donnees
 
-`commun/itstore-template.db` est une base modele vide, suivie par Git et embarquee dans l'application. Au premier lancement, l'application la copie dans le dossier de donnees utilisateur de Qt, puis ouvre cette copie pour permettre les ecritures. Le chemin est determine par Qt selon le systeme; il ne depend donc pas du dossier ou le depot a ete clone.
+Au premier lancement, SQLite cree le fichier de base dans le dossier de donnees utilisateur de Qt et l'application y initialise le schema. Le chemin est determine par Qt selon le systeme; il ne depend donc pas du dossier ou le depot a ete clone.
 
-La base de travail de chaque personne est privee a son ordinateur et n'est pas synchronisee par Git. `commun/itstore.db` est ignore par Git pour eviter de publier des donnees reelles ou personnelles. Pour repartir de la base modele, fermer l'application puis supprimer uniquement la copie `itstore.db` du dossier de donnees utilisateur de l'application.
+La base de travail de chaque personne est privee a son ordinateur et n'est pas synchronisee par Git. `commun/itstore.db` est utilisee en developpement si elle existe et ignoree par Git pour eviter de publier des donnees reelles ou personnelles. Pour repartir d'une base vide, fermer l'application puis supprimer uniquement la copie `itstore.db` du dossier de donnees utilisateur de l'application.
 
 ## Dossiers
 

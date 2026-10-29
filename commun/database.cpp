@@ -3,7 +3,6 @@
 #include <QCoreApplication>
 #include <QDebug>
 #include <QDir>
-#include <QFile>
 #include <QFileInfo>
 #include <QHash>
 #include <QSqlDatabase>
@@ -11,11 +10,6 @@
 #include <QSqlQuery>
 #include <QStandardPaths>
 #include <QVector>
-
-void initialiserRessourcesBase()
-{
-    Q_INIT_RESOURCE(database);
-}
 
 namespace {
 
@@ -162,8 +156,6 @@ bool migrerAncienneBase(QSqlDatabase &db)
 
 bool Database::ouvrir()
 {
-    initialiserRessourcesBase();
-
     QString cheminBaseProjet;
     QDir dossierProjet(QCoreApplication::applicationDirPath());
     for (int niveau = 0; niveau < 5; ++niveau) {
@@ -185,11 +177,6 @@ bool Database::ouvrir()
         }
 
         cheminBase = QDir(dossier).filePath(QStringLiteral("itstore.db"));
-        if (!QFileInfo::exists(cheminBase)
-            && !QFile::copy(QStringLiteral(":/database/itstore.db"), cheminBase)) {
-            qWarning() << "Impossible de copier la base modèle vers :" << cheminBase;
-            return false;
-        }
     }
 
     QSqlDatabase db = QSqlDatabase::contains()
