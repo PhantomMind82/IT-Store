@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #pragma once
 
 namespace Database {
@@ -10,3 +11,10 @@ namespace Database {
      */
     bool ouvrir();
 }
+=======
+#pragma once
+
+namespace Database {
+    bool ouvrir();
+}
+>>>>>>> 8c2295e (Crafting)

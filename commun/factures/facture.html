@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        color: #343943;
+        background: #ffffff;
+        font-size: 12pt;
+    }
+
+    .facture {
+        padding: 28px;
+    }
+
+    .entete {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+
+    .titre {
+        font-size: 25pt;
+        font-weight: bold;
+    }
+
+    .magasin {
+        color: #803e48;
+        font-size: 19pt;
+        font-weight: bold;
+        text-align: right;
+    }
+
+    .infos {
+        width: 100%;
+        margin-bottom: 28px;
+    }
+
+    .infos td {
+        padding: 5px 0;
+    }
+
+    .libelle {
+        color: #858991;
+    }
+
+    .articles {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    .articles th {
+        color: #858991;
+        font-size: 9pt;
+        text-align: left;
+        padding: 12px 5px;
+        border-bottom: 1px solid #dddddd;
+    }
+
+    .articles td {
+        padding: 15px 5px;
+        border-bottom: 1px solid #eeeeee;
+    }
+
+    .droite {
+        text-align: right;
+    }
+
+    .centre {
+        text-align: center;
+    }
+
+    .total {
+        margin-top: 20px;
+        background-color: #414146;
+        color: white;
+        padding: 18px;
+        border-radius: 10px;
+        font-size: 16pt;
+        font-weight: bold;
+    }
+
+    .montant {
+        color: #ffc1ae;
+        text-align: right;
+    }
+
+    .lettres {
+        margin-top: 25px;
+        color: #858991;
+        font-size: 10pt;
+    }
+</style>
+</head>
+<body>
+<div class="facture">
+    <table class="entete">
+        <tr>
+            <td class="titre">Facture N° {{NUMERO_FACTURE}}</td>
+            <td class="magasin">IT Store</td>
+        </tr>
+    </table>
+    <table class="infos">
+        <tr>
+            <td><span class="libelle">N° client :</span> <b>{{ID_CLIENT}}</b></td>
+            <td><span class="libelle">Date :</span> <b>{{DATE}}</b></td>
+        </tr>
+        <tr>
+            <td><span class="libelle">Nom :</span> <b>{{NOM_CLIENT}}</b></td>
+            <td><span class="libelle">Téléphone :</span> <b>{{TELEPHONE}}</b></td>
+        </tr>
+    </table>
+    <table class="articles">
+        <thead>
+            <tr>
+                <th>DÉSIGNATION</th>
+                <th class="droite">PU</th>
+                <th class="centre">QTÉ</th>
+                <th class="droite">MONTANT</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{LIGNES_ACHAT}}
+        </tbody>
+    </table>
+    <table width="100%" class="total">
+        <tr>
+            <td>Total</td>
+            <td class="montant">{{TOTAL}} Ar</td>
+        </tr>
+    </table>
+    <p class="lettres">Arrêtée la présente facture à la somme de <b>{{TOTAL_EN_LETTRES}}</b>.</p>
+</div>
+</body>
+</html>

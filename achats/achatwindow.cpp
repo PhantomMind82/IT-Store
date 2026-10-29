@@ -1,6 +1,7 @@
 #include "achatwindow.h"
 #include "ui_achatwindow.h"
 
+<<<<<<< HEAD
 #include "achats/achatsui.h"
 #include "achats/achatstyle.h"
 #include "achats/facture/facturedialog.h"
@@ -49,17 +50,155 @@ AchatWindow::AchatWindow(QWidget *parent)
     ajouterIcones();
 
     // « ← Accueil » ferme la fenêtre et revient au menu principal.
+=======
+#include "achats/facture/facture.h"
+#include "achats/nouveau/nouveauachat.h"
+#include "achats/suppression/supprimerachat.h"
+
+#include <QDialog>
+#include <QDir>
+#include <QFrame>
+#include <QHeaderView>
+#include <QHBoxLayout>
+#include <QLabel>
+#include <QLocale>
+#include <QPainter>
+#include <QPixmap>
+#include <QPushButton>
+#include <QRegularExpression>
+#include <QMessageBox>
+#include <QDebug>
+#include <QSvgRenderer>
+#include <QSqlQuery>
+#include <QSqlError>
+#include <QStringList>
+#include <QTableWidgetItem>
+#include <QVBoxLayout>
+
+static QString enAriary(double valeur)
+{
+    return QLocale::c().toString(valeur, 'f', 0).replace(',', QChar(0x00A0)) + QChar(0x00A0) + "Ar";
+}
+
+static QPixmap chargerSvg(const QString &chemin, const QSize &taille)
+{
+    QSvgRenderer renderer(chemin);
+    QPixmap pixmap(taille);
+    pixmap.fill(Qt::transparent);
+    if (renderer.isValid()) {
+        QPainter painter(&pixmap);
+        renderer.render(&painter);
+    } else {
+        qWarning() << "Impossible de charger le SVG:" << chemin;
+    }
+    return pixmap;
+}
+
+static void afficherAlerteSelection(QWidget *parent, const QString &action)
+{
+    QDialog fenetre(parent);
+    fenetre.setWindowTitle(QObject::tr("Aucun achat sélectionné"));
+    fenetre.setModal(true);
+    fenetre.setFixedSize(410, 245);
+    fenetre.setStyleSheet(QStringLiteral(
+        "QDialog { background: #FFFFFF; }"
+        "QFrame#bandeau { background: #E96F10; border-radius: 8px; }"
+        "QLabel#icone { color: white; background: rgba(255,255,255,35); border-radius: 20px;"
+        " font-size: 24px; font-weight: 700; }"
+        "QLabel#titre { color: #2B1608; font-size: 20px; font-weight: 700; }"
+        "QLabel#message { color: #72523C; font-size: 14px; }"
+        "QPushButton { min-height: 44px; padding: 0 18px; border: 0; border-radius: 8px;"
+        " font-size: 14px; font-weight: 700; }"
+        "QPushButton#retour { color: white; background: #E96F10; }"
+        "QPushButton#retour:hover { background: #D85E08; }"));
+
+    auto *contenu = new QVBoxLayout(&fenetre);
+    contenu->setContentsMargins(22, 20, 22, 20);
+    contenu->setSpacing(15);
+
+    auto *bandeau = new QFrame(&fenetre);
+    bandeau->setObjectName("bandeau");
+    bandeau->setFixedHeight(8);
+    contenu->addWidget(bandeau);
+
+    auto *entete = new QHBoxLayout;
+    auto *icone = new QLabel(QStringLiteral("!"), &fenetre);
+    icone->setObjectName("icone");
+    icone->setAlignment(Qt::AlignCenter);
+    icone->setFixedSize(40, 40);
+    auto *titre = new QLabel(QObject::tr("Choisissez un achat"), &fenetre);
+    titre->setObjectName("titre");
+    entete->addWidget(icone);
+    entete->addSpacing(4);
+    entete->addWidget(titre, 1);
+    contenu->addLayout(entete);
+
+    auto *message = new QLabel(QObject::tr("Pour %1, sélectionnez d'abord une ligne dans le tableau des achats.")
+                                   .arg(action), &fenetre);
+    message->setObjectName("message");
+    message->setWordWrap(true);
+    contenu->addWidget(message, 1);
+
+    auto *boutons = new QHBoxLayout;
+    boutons->addStretch();
+    auto *retour = new QPushButton(QObject::tr("Retour à la liste"), &fenetre);
+    retour->setObjectName("retour");
+    retour->setCursor(Qt::PointingHandCursor);
+    boutons->addWidget(retour);
+    contenu->addLayout(boutons);
+
+    QObject::connect(retour, &QPushButton::clicked, &fenetre, &QDialog::accept);
+    fenetre.exec();
+}
+
+AchatWindow::AchatWindow(QWidget *parent)
+    : QDialog(parent), ui(new Ui::AchatWindow)
+{
+    ui->setupUi(this);
+
+    ui->logo->setPixmap(chargerSvg(":/achats/assets/logo.svg", ui->logo->size()));
+    ui->iconeTitre->setPixmap(chargerSvg(":/achats/assets/icone-panier.svg", ui->iconeTitre->size()));
+    ui->iconeRecherche->setPixmap(chargerSvg(":/achats/assets/loupe.svg", ui->iconeRecherche->size()));
+    ui->btnNouveau->setIcon(QIcon(chargerSvg(":/achats/assets/btn-plus.svg", QSize(62, 48))));
+    ui->btnModifier->setIcon(QIcon(chargerSvg(":/achats/assets/btn-crayon.svg", QSize(62, 48))));
+    ui->btnFacture->setIcon(QIcon(chargerSvg(":/achats/assets/btn-document.svg", QSize(62, 48))));
+    ui->btnSupprimer->setIcon(QIcon(chargerSvg(":/achats/assets/btn-corbeille.svg", QSize(62, 48))));
+    ui->btnNouveau->setIconSize(QSize(62, 48));
+    ui->btnModifier->setIconSize(QSize(62, 48));
+    ui->btnFacture->setIconSize(QSize(62, 48));
+    ui->btnSupprimer->setIconSize(QSize(62, 48));
+
+    setWindowFlag(Qt::WindowMaximizeButtonHint, true);
+    setSizeGripEnabled(true);
+
+    ui->tableAchats->setSelectionMode(QAbstractItemView::ExtendedSelection);
+    ui->tableAchats->verticalHeader()->setDefaultSectionSize(68);
+    QHeaderView *entete = ui->tableAchats->horizontalHeader();
+    entete->setSectionResizeMode(QHeaderView::Stretch);
+    entete->setSectionResizeMode(0, QHeaderView::ResizeToContents);
+    entete->setFixedHeight(54);
+    entete->setMinimumSectionSize(120);
+    entete->setHighlightSections(false);
+    entete->setDefaultAlignment(Qt::AlignLeft | Qt::AlignVCenter);
+
+>>>>>>> 8c2295e (Crafting)
     connect(ui->btnAccueil, &QPushButton::clicked, this, &QDialog::accept);
     connect(ui->btnNouveau, &QPushButton::clicked, this, &AchatWindow::onNouveau);
     connect(ui->btnModifier, &QPushButton::clicked, this, &AchatWindow::onModifier);
     connect(ui->btnFacture, &QPushButton::clicked, this, &AchatWindow::onFacture);
     connect(ui->btnSupprimer, &QPushButton::clicked, this, &AchatWindow::onSupprimer);
 
+<<<<<<< HEAD
     // À chaque lettre tapée dans la recherche, on redessine le tableau.
     connect(ui->champRecherche, &QLineEdit::textChanged, this, &AchatWindow::rafraichir);
 
     chargerDonnees();
     rafraichir();
+=======
+    connect(ui->champRecherche, &QLineEdit::textChanged, this, &AchatWindow::chargerTable);
+
+    chargerTable();
+>>>>>>> 8c2295e (Crafting)
 }
 
 AchatWindow::~AchatWindow()
@@ -67,6 +206,7 @@ AchatWindow::~AchatWindow()
     delete ui;
 }
 
+<<<<<<< HEAD
 // ---------------------------------------------------------------------------
 // Données
 // ---------------------------------------------------------------------------
@@ -208,10 +348,75 @@ void AchatWindow::rafraichir()
         ui->labelAide->setText(QStringLiteral("Aucun achat ne correspond à cette recherche."));
     else
         ui->labelAide->setText(QStringLiteral("Sélectionnez un achat pour le modifier, le supprimer ou éditer sa facture."));
+=======
+void AchatWindow::chargerTable()
+{
+    const int idAchatAGarder = idSelectionne();
+    ui->tableAchats->setRowCount(0);
+
+    const QString texte = ui->champRecherche->text().trimmed();
+    const QString motif = "%" + texte + "%";
+    QString numeroTelephone = texte;
+    numeroTelephone.remove(QRegularExpression("\\D"));
+    const QString motifTelephone = numeroTelephone.isEmpty() ? QStringLiteral("!aucun-numero!")
+                                                             : "%" + numeroTelephone + "%";
+    QSqlQuery requete;
+    requete.prepare("SELECT a.id_achat, COALESCE(c.nom, ''), COALESCE(m.designation, ''), "
+              "a.qte, COALESCE(a.date_achat, ''), "
+              "a.qte * COALESCE(m.prix_unitaire, 0) "
+              "FROM achat a "
+              "LEFT JOIN client c ON a.id_client = c.id_client "
+              "LEFT JOIN materiel m ON a.id_materiel = m.id_materiel "
+              "WHERE CAST(a.id_achat AS TEXT) LIKE ? OR c.nom LIKE ? "
+              "OR m.designation LIKE ? OR a.date_achat LIKE ? "
+              "OR REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(COALESCE(c.telephone, ''), ' ', ''), '-', ''), '(', ''), ')', ''), '+', ''), '.', ''), '/', '') LIKE ? "
+              "ORDER BY a.id_achat ASC");
+    requete.addBindValue(motif);
+    requete.addBindValue(motif);
+    requete.addBindValue(motif);
+    requete.addBindValue(motif);
+    requete.addBindValue(motifTelephone);
+    if (!requete.exec()) {
+        ui->labelAide->setText(tr("Impossible de charger les achats : %1").arg(requete.lastError().text()));
+        ui->labelTotalValeur->setText(enAriary(0));
+        return;
+    }
+
+    double total = 0;
+    while (requete.next()) {
+        const int ligne = ui->tableAchats->rowCount();
+        ui->tableAchats->insertRow(ligne);
+
+        for (int colonne = 0; colonne < 6; ++colonne) {
+            QString contenu = requete.value(colonne).toString();
+            if (colonne == 5)
+                contenu = enAriary(requete.value(5).toDouble());
+
+            auto *cellule = new QTableWidgetItem(contenu);
+            if (colonne == 3 || colonne == 5)
+                cellule->setTextAlignment(Qt::AlignRight | Qt::AlignVCenter);
+            ui->tableAchats->setItem(ligne, colonne, cellule);
+        }
+
+        total += requete.value(5).toDouble();
+        if (requete.value(0).toInt() == idAchatAGarder)
+            ui->tableAchats->selectRow(ligne);
+    }
+
+    ui->labelTotalValeur->setText(enAriary(total));
+
+    if (ui->tableAchats->rowCount() > 0)
+        ui->labelAide->setText(tr("Sélectionnez un achat pour le modifier, le supprimer ou éditer sa facture."));
+    else if (texte.isEmpty())
+        ui->labelAide->setText(tr("Aucun achat enregistré pour le moment."));
+    else
+        ui->labelAide->setText(tr("Aucun achat ne correspond à cette recherche."));
+>>>>>>> 8c2295e (Crafting)
 }
 
 int AchatWindow::idSelectionne() const
 {
+<<<<<<< HEAD
     const QModelIndexList lignes = ui->tableAchats->selectionModel()->selectedRows();
     if (lignes.isEmpty())
         return -1;
@@ -257,10 +462,35 @@ void AchatWindow::onNouveau()
     //   INSERT INTO Achat ...  puis  UPDATE Materiel SET stockActuel = stockActuel - qte
     m_achats.append(nouveau);
     rafraichir();
+=======
+    const QList<QTableWidgetItem *> choix = ui->tableAchats->selectedItems();
+    if (choix.isEmpty())
+        return -1;
+    return ui->tableAchats->item(choix.first()->row(), 0)->text().toInt();
+}
+
+int AchatWindow::idChoisi(const QString &titre)
+{
+    const int id = idSelectionne();
+    if (id < 0)
+    {
+        afficherAlerteSelection(this, titre.toLower());
+        ui->tableAchats->setFocus();
+    }
+    return id;
+}
+
+void AchatWindow::onNouveau()
+{
+    NouveauAchat fenetre(0, this);
+    if (fenetre.exec() == QDialog::Accepted)
+        chargerTable();
+>>>>>>> 8c2295e (Crafting)
 }
 
 void AchatWindow::onModifier()
 {
+<<<<<<< HEAD
     const int index = indexParId(idSelectionne());
     if (index < 0) {
         QMessageBox::information(this, QStringLiteral("Modifier"),
@@ -280,10 +510,20 @@ void AchatWindow::onModifier()
     //   UPDATE Achat ...  et ajuster le stock du matériel (différence entre ancienne et nouvelle quantité)
     m_achats[index] = dialogue.getAchat();   // getAchat() garde le même numéro d'achat
     rafraichir();
+=======
+    const int id = idChoisi(tr("modifier"));
+    if (id < 0)
+        return;
+
+    NouveauAchat fenetre(id, this);
+    if (fenetre.exec() == QDialog::Accepted)
+        chargerTable();
+>>>>>>> 8c2295e (Crafting)
 }
 
 void AchatWindow::onFacture()
 {
+<<<<<<< HEAD
     const int index = indexParId(idSelectionne());
     if (index < 0) {
         QMessageBox::information(this, QStringLiteral("Facture PDF"),
@@ -301,10 +541,37 @@ void AchatWindow::onFacture()
 
     FactureDialog dialogue(achatsDuClient, this);
     dialogue.exec();
+=======
+    auto *selection = ui->tableAchats->selectionModel();
+    if (!selection || selection->selectedRows(0).isEmpty()) {
+        afficherAlerteSelection(this, tr("générer une facture"));
+        ui->tableAchats->setFocus();
+        return;
+    }
+
+    QList<int> identifiants;
+    const QModelIndexList lignes = selection->selectedRows(0);
+    identifiants.reserve(lignes.size());
+    for (const QModelIndex &index : lignes) {
+        const auto *cellule = ui->tableAchats->item(index.row(), 0);
+        if (cellule)
+            identifiants.append(cellule->text().toInt());
+    }
+
+    if (identifiants.isEmpty()) {
+        afficherAlerteSelection(this, tr("générer une facture"));
+        ui->tableAchats->setFocus();
+        return;
+    }
+
+    Facture fenetre(identifiants, this);
+    fenetre.exec();
+>>>>>>> 8c2295e (Crafting)
 }
 
 void AchatWindow::onSupprimer()
 {
+<<<<<<< HEAD
     const int index = indexParId(idSelectionne());
     if (index < 0) {
         QMessageBox::information(this, QStringLiteral("Supprimer"),
@@ -320,4 +587,13 @@ void AchatWindow::onSupprimer()
     //   DELETE FROM Achat ...  puis  UPDATE Materiel SET stockActuel = stockActuel + qte
     m_achats.removeAt(index);
     rafraichir();
+=======
+    const int id = idChoisi(tr("supprimer"));
+    if (id < 0)
+        return;
+
+    SupprimerAchat fenetre(id, this);
+    if (fenetre.exec() == QDialog::Accepted)
+        chargerTable();
+>>>>>>> 8c2295e (Crafting)
 }
