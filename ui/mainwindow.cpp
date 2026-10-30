@@ -107,7 +107,7 @@ QPushButton *MainWindow::creerCarte(const QString &icone, const QString &titre,
     carte->setCursor(Qt::PointingHandCursor);
     carte->setStyleSheet(QString(
                              "QPushButton { background: qlineargradient(x1:0, y1:0, x2:1, y2:1,"
-                             " stop:0 %1, stop:1 %2); border: none; border-radius: 12px; }"
+                              " stop:0 %1, stop:1 %2); border: none; border-radius: 12px; }"
                              "QPushButton:hover { border: 3px solid rgba(255,255,255,150); }")
                              .arg(couleur1, couleur2));
 
