@@ -61,8 +61,6 @@ qt_add_executable(GestionVente
     achats/facture/nombreenlettres.h
 
     # --- ventes (listage) ---
-    ventes/ventes.h
-    ventes/ventes.cpp
     ventes/ventewindow.h
     ventes/ventewindow.cpp
 

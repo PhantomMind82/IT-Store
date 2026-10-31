@@ -14,3 +14,4 @@
 using ListeClients   = QList<Client>;
 using ListeMateriels = QList<Materiel>;
 using ListeAchats    = QList<Achat>;
+
