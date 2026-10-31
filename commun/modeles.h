@@ -11,7 +11,6 @@
 #include "materiels/materiel.h"
 #include "achats/achat.h"
 
-
 using ListeClients   = QList<Client>;
 using ListeMateriels = QList<Materiel>;
 using ListeAchats    = QList<Achat>;
