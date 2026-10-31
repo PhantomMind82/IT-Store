@@ -1,8 +1,15 @@
 #pragma once
 
 #include <QDialog>
+#include <QString>
 
-// TODO : Module à réaliser correspondant au VENTE
+class QFrame;
+class QLabel;
+class QPushButton;
+class QLineEdit;
+class QComboBox;
+class QDateEdit;
+class QTableWidget;
 
 class VenteWindow : public QDialog
 {
@@ -12,72 +19,38 @@ public:
     explicit VenteWindow(QWidget *parent = nullptr);
 
 private:
-
-    // =========================
-    // Fonctions du module VENTE
-    // =========================
-
-    // Recherche un client à partir du numéro saisi
-    void rechercherClientParNumero();
-
-    // Charge les ventes d'un client et remplit le tableau
+    void rechercherClient();
     void chargerVentes(const QString &numClient);
-
-    // Met à jour le récapitulatif après le chargement des ventes
     void mettreAJourRecapitulatif(const QString &nomClient);
+    void viderAffichage();
+    QString conditionDateSql() const;
 
+    QFrame *header;
+    QLabel *titreLabel;
+    QLabel *descriptionLabel;
 
-    // =========================
-    // En-tête
-    // =========================
-    class QFrame *header;
-    class QLabel *titreLabel;
-    class QLabel *descriptionLabel;
+    QPushButton *btnRechercheNumero;
+    QPushButton *btnRechercheNom;
+    QLineEdit *rechercheClient;
+    QPushButton *btnRechercher;
 
+    QLabel *clientNom;
+    QLabel *clientNumero;
 
-    // =========================
-    // Recherche client
-    // =========================
-    class QPushButton *btnRechercheNumero;
-    class QPushButton *btnRechercheNom;
-    class QLineEdit *rechercheClient;
-    class QPushButton *btnRechercher;
+    QComboBox *periodeCombo;
+    QDateEdit *dateDebut;
+    QDateEdit *dateFin;
 
+    QTableWidget *tableVentes;
 
-    // =========================
-    // Informations client
-    // =========================
-    class QLabel *clientNom;
-    class QLabel *clientNumero;
+    QLabel *recapClient;
+    QLabel *recapArticles;
+    QLabel *recapMontant;
 
+    QLabel *totalGeneral;
+    QPushButton *btnActualiser;
+    QPushButton *btnImprimer;
 
-    // =========================
-    // Filtre période
-    // =========================
-    class QComboBox *periodeCombo;
-    class QDateEdit *dateDebut;
-    class QDateEdit *dateFin;
-
-
-    // =========================
-    // Tableau des ventes
-    // =========================
-    class QTableWidget *tableVentes;
-
-
-    // =========================
-    // Récapitulatif
-    // =========================
-    class QLabel *recapClient;
-    class QLabel *recapArticles;
-    class QLabel *recapMontant;
-
-
-    // =========================
-    // Bas de page
-    // =========================
-    class QLabel *nombreArticles;
-    class QLabel *totalGeneral;
-    class QPushButton *btnActualiser;
-    class QPushButton *btnImprimer;
+    QString numClientActuel;
+    QString nomClientActuel;
 };

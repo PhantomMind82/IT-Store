@@ -33,8 +33,6 @@ qt_add_executable(GestionVente
     achats/achat.cpp
 
     # --- ventes (listage) ---
-    ventes/ventes.h
-    ventes/ventes.cpp
     ventes/ventewindow.h
     ventes/ventewindow.cpp
 
