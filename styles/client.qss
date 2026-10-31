@@ -1,0 +1,290 @@
+/* =========================================================
+   IT Store - Gestion des clients
+   ========================================================= */
+
+/* ---------- Base ---------- */
+QDialog {
+    background: #EAF4FF;
+}
+
+#central {
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                stop:0 #E6F1FE, stop:1 #F8FBFF);
+}
+
+#contenu, #titre {
+    background: transparent;
+}
+
+/* Zone défilante transparente (laisse voir le dégradé) */
+QScrollArea,
+QScrollArea > QWidget > QWidget {
+    background: transparent;
+    border: none;
+}
+
+QLabel {
+    background: transparent;
+    color: #0B2A5B;
+    font-family: "Segoe UI", "Arial", sans-serif;
+    font-size: 13px;
+}
+
+/* ---------- En-tête ---------- */
+#entete {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+                stop:0 #0A5BD3, stop:1 #1B7DF0);
+}
+
+#logo {
+    color: #FFFFFF;
+    font-family: "Georgia", "Times New Roman", serif;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+#slogan {
+    color: #FFFFFF;
+    font-size: 15px;
+}
+
+/* ---------- Titre de la page ---------- */
+#icon_titre {
+    color: #1F6FE5;
+    font-size: 38px;
+}
+
+#text_titre {
+    color: #0B2E8A;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+#sous_titre {
+    color: #3F6291;
+    font-size: 15px;
+}
+
+/* ---------- Cartes ---------- */
+#carte {
+    background: #F1F7FE;
+    border: 1px solid #A9CDF5;
+    border-radius: 6px;
+}
+
+#carteEntete {
+    background: #DCEBFC;
+    border: none;
+    border-bottom: 1px solid #C6DDF6;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+#carteCorps {
+    background: transparent;
+}
+
+#carteIcone {
+    color: #1F6FE5;
+    font-size: 22px;
+}
+
+#carteTitre {
+    color: #0B3A99;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+#etiquetteGras {
+    font-weight: 600;
+    color: #0B2A5B;
+}
+
+/* ---------- Bloc résultat (N° client / nom / tél) ---------- */
+#resultat {
+    background: #EAF3FD;
+    border: 1px solid #C6DDF6;
+    border-radius: 5px;
+}
+
+#resultat QLabel {
+    color: #2C4A78;
+    font-size: 14px;
+}
+
+/* ---------- Champs de saisie ---------- */
+QLineEdit {
+    background: #FFFFFF;
+    border: 1px solid #B5D3F3;
+    border-radius: 4px;
+    padding: 4px 10px;
+    min-height: 20px;
+    color: #0B2A5B;
+    font-size: 14px;
+    selection-background-color: #1E7BEF;
+}
+
+QLineEdit:focus {
+    border: 1px solid #1E7BEF;
+}
+
+QLineEdit:read-only {
+    background: #DCE8F5;
+    color: #6C86A8;
+    border: 1px solid #CFE0F3;
+}
+
+/* Champs plus compacts dans le bloc résultat */
+#resultat QLineEdit {
+    padding: 1px 8px;
+    min-height: 18px;
+    border-radius: 3px;
+}
+
+/* ---------- ComboBox ---------- */
+QComboBox {
+    background: #FFFFFF;
+    border: 1px solid #B5D3F3;
+    border-radius: 4px;
+    padding: 3px 10px;
+    min-height: 20px;
+    color: #0B2A5B;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+QComboBox:hover,
+QComboBox:focus {
+    border: 1px solid #1E7BEF;
+}
+
+QComboBox QAbstractItemView {
+    background: #FFFFFF;
+    border: 1px solid #B5D3F3;
+    selection-background-color: #1E7BEF;
+    selection-color: #FFFFFF;
+    outline: none;
+}
+
+/* ---------- Boutons ---------- */
+QPushButton {
+    font-family: "Segoe UI", "Arial", sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    border: none;
+    border-radius: 4px;
+    padding: 6px 18px;
+    min-height: 20px;
+}
+
+/* Primaire (Enregistrer) */
+#btnPrimaire {
+    color: #FFFFFF;
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                stop:0 #2A92F8, stop:1 #0B6FE0);
+}
+#btnPrimaire:hover {
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                stop:0 #44A3FF, stop:1 #1E82EE);
+}
+#btnPrimaire:pressed {
+    background: #0A5CC0;
+}
+
+/* Secondaire (Réinitialiser) */
+#btnSecondaire {
+    color: #164C9A;
+    background: #D5E5F7;
+}
+#btnSecondaire:hover {
+    background: #C3DAF3;
+}
+#btnSecondaire:pressed {
+    background: #B0CCEC;
+}
+
+/* Danger (Supprimer) */
+#btnDanger {
+    color: #FFFFFF;
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                stop:0 #F04A5C, stop:1 #D91F35);
+}
+#btnDanger:hover {
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                stop:0 #FF6475, stop:1 #E8293F);
+}
+#btnDanger:pressed {
+    background: #B8182B;
+}
+
+/* Recherche (loupe) */
+#btnRecherche {
+    color: #FFFFFF;
+    background: #0A7BE0;
+    font-size: 16px;
+    padding: 0;
+}
+#btnRecherche:hover {
+    background: #2A92F0;
+}
+#btnRecherche:pressed {
+    background: #0966BD;
+}
+
+/* ---------- Tableau ---------- */
+QTableWidget {
+    background: #FFFFFF;
+    alternate-background-color: #F3F8FE;
+    border: 1px solid #C6DDF6;
+    color: #0B2A5B;
+    font-size: 14px;
+    gridline-color: transparent;
+    selection-background-color: #CFE4FB;
+    selection-color: #0B2A5B;
+    outline: none;
+}
+
+QTableWidget::item {
+    padding-left: 8px;
+    border: none;
+}
+
+QHeaderView::section {
+    background: #FFFFFF;
+    color: #0B2A5B;
+    font-weight: bold;
+    font-size: 14px;
+    padding-left: 8px;
+    border: none;
+    border-right: 1px solid #D5E3F3;
+    border-bottom: 1px solid #C6DDF6;
+}
+
+QTableCornerButton::section {
+    background: #FFFFFF;
+    border: none;
+}
+
+/* ---------- Barres de défilement ---------- */
+QScrollBar:vertical {
+    background: #F3F8FE;
+    width: 12px;
+    margin: 0;
+}
+QScrollBar::handle:vertical {
+    background: #B5CBE6;
+    border-radius: 4px;
+    min-height: 24px;
+    margin: 2px;
+}
+QScrollBar::handle:vertical:hover {
+    background: #8FB0DA;
+}
+QScrollBar::add-line:vertical,
+QScrollBar::sub-line:vertical {
+    height: 0;
+}
+QScrollBar::add-page:vertical,
+QScrollBar::sub-page:vertical {
+    background: transparent;
+}
