@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/factures">
+        <file alias="facture.html">facture.html</file>
+    </qresource>
+</RCC>

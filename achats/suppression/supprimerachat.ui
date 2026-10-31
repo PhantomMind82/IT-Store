@@ -1,0 +1,139 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ui version="4.0">
+ <class>SupprimerAchat</class>
+ <widget class="QDialog" name="SupprimerAchat">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>440</width>
+    <height>300</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>440</width>
+    <height>300</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Supprimer un achat</string>
+  </property>
+  <layout class="QVBoxLayout" name="layoutPrincipal">
+   <property name="spacing">
+    <number>14</number>
+   </property>
+   <property name="leftMargin">
+    <number>32</number>
+   </property>
+   <property name="topMargin">
+    <number>32</number>
+   </property>
+   <property name="rightMargin">
+    <number>32</number>
+   </property>
+   <property name="bottomMargin">
+    <number>32</number>
+   </property>
+   <item>
+    <widget class="QLabel" name="iconeCorbeille">
+     <property name="text">
+      <string />
+     </property>
+    <property name="pixmap"><pixmap resource="../achats.qrc">:/achats/assets/corbeille-rouge.svg</pixmap></property><property name="minimumSize"><size><width>48</width><height>48</height></size></property><property name="maximumSize"><size><width>48</width><height>48</height></size></property></widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="labelSupprimerTitre">
+     <property name="text">
+      <string>Supprimer cet achat ?</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="labelSupprimerDesc">
+     <property name="text">
+      <string />
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <spacer name="spacerBas">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>20</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="layoutBoutons">
+     <property name="spacing">
+      <number>12</number>
+     </property>
+     <item>
+      <spacer name="spacerBoutons">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnAnnulerSup">
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="text">
+        <string>Annuler</string>
+       </property>
+       <property name="default">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnConfirmerSup">
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="text">
+        <string>Supprimer</string>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ <property name="styleSheet"><string notr="true">
+QWidget { font-family: "Segoe UI", "Ubuntu", "Noto Sans", "DejaVu Sans", sans-serif; font-size: 15px; color: #2B1608; }
+QLabel { background: transparent; }
+QPushButton { outline: none; }
+QDialog#SupprimerAchat { background: #FFFFFF; }
+QLabel#labelSupprimerTitre { font-size: 22px; font-weight: 700; }
+QLabel#labelSupprimerDesc { color: #7A5C45; }
+QPushButton#btnAnnulerSup { min-height: 48px; padding: 0 20px; border: 0; border-radius: 12px; font-size: 16px; font-weight: 700; background: #F1E3D3; color: #2B1608; }
+QPushButton#btnAnnulerSup:hover { background: #E8D5C0; }
+QPushButton#btnConfirmerSup { min-height: 48px; padding: 0 20px; border: 0; border-radius: 12px; font-size: 16px; font-weight: 700; background: #C23030; color: #FFFFFF; }
+QPushButton#btnConfirmerSup:hover { background: #A82626; }
+</string></property></widget>
+ <resources><include location="../achats.qrc" /></resources>
+ <connections />
+</ui>

@@ -1,47 +1,39 @@
-# IT-Store — Vente de matériels informatiques
+# IT Store
 
-Application Qt 6 (C++ / CMake) de gestion des clients, matériels et achats.
+Application de bureau de gestion des clients, du materiel, des achats et des factures. Le projet utilise C++17, Qt 6, CMake et SQLite.
 
-## Compiler
+## Prerequis
 
-Prérequis : Qt 6.5+ (avec le module **Sql**), CMake ≥ 3.19, MinGW ou autre compilateur C++17.
+- CMake 3.19 ou plus recent.
+- Qt 6.5 ou plus recent avec les modules Core, Gui, Widgets, Sql et Svg.
+- Un compilateur C++17 (MinGW, MSVC, GCC ou Clang).
 
-Dans **Qt Creator** : *Fichier → Ouvrir un fichier ou un projet* → choisir `CMakeLists.txt`,
-puis **Ctrl+R**.
+## Cloner et compiler
 
-## Structure
+Cloner le depot, puis ouvrir `CMakeLists.txt` dans Qt Creator. Choisir un kit Qt 6 correspondant au compilateur installe, configurer le projet, puis compiler et lancer `GestionVente`.
 
-| Dossier      | Contenu                                                         |
-|--------------|-----------------------------------------------------------------|
-| `ui/`        | Page d'accueil (`MainWindow`) : 3 cartes Matériel / Client / Achat |
-| `clients/`   | `ClientWindow` (fenêtre) + classe `Client`                      |
-| `materiels/` | `MaterielWindow` (fenêtre) + classe `Materiel`                  |
-| `achats/`    | `AchatWindow` (fenêtre) + classe `Achat`                        |
-| `commun/`    | `Database` (SQLite), `Style` (couleurs), `modeles.h`            |
+En ligne de commande, apres avoir configure le chemin vers l'installation Qt :
 
-## Où coder ?
+```sh
+cmake -S . -B build -DCMAKE_PREFIX_PATH=/chemin/vers/Qt/6.x/kit
+cmake --build build
+```
 
-Chaque carte de l'accueil ouvre déjà la fenêtre de son module (`exec()`).
-Chaque fenêtre affiche pour l'instant « EN COURS DE DÉVELOPPEMENT ».
+Chaque ordinateur doit avoir Qt et un compilateur compatibles. Les fichiers sources, interfaces `.ui` et ressources `.qrc` sont dans Git; les dossiers de build ne le sont pas.
 
-Pour développer votre module : ouvrez **uniquement votre dossier** et remplacez le contenu du
-**constructeur** de votre fenêtre (`clientwindow.cpp`, `materielwindow.cpp` ou `achatwindow.cpp`).
-Vous n'avez pas besoin de toucher à `ui/mainwindow.cpp`.
+## Base de donnees
 
-La base de données est ouverte au démarrage (`Database::ouvrir()` dans `main.cpp`).
-Pour l'utiliser dans votre code : `#include <QSqlQuery>` puis `QSqlQuery q; q.exec("SELECT ...");`
+Au premier lancement, SQLite cree le fichier de base dans le dossier de donnees utilisateur de Qt et l'application y initialise le schema. Le chemin est determine par Qt selon le systeme; il ne depend donc pas du dossier ou le depot a ete clone.
 
-Tables : `Client(numClient, nom)`, `Materiel(numMat, design, pu, stockActuel, stockInit)`,
-`Achat(id, numClient, numMat, qte, date_achat)`.
+La base de travail de chaque personne est privee a son ordinateur et n'est pas synchronisee par Git. `commun/itstore.db` est utilisee en developpement si elle existe et ignoree par Git pour eviter de publier des donnees reelles ou personnelles. Pour repartir d'une base vide, fermer l'application puis supprimer uniquement la copie `itstore.db` du dossier de donnees utilisateur de l'application.
 
-## Règles de travail en équipe
+## Dossiers
 
-- Chacun travaille uniquement dans **son dossier**.
-- Une branche par module : `feature/clients`, `feature/materiels`, `feature/achats`.
-- Les modifications de `commun/` et `ui/` passent par le responsable de l'intégration.
-- Avant de pousser : `git pull --rebase origin main`.
+- `ui/` : fenetre d'accueil.
+- `clients/` : gestion des clients.
+- `materiels/` : gestion du materiel et du stock.
+- `achats/` : achats, formulaires, suppression et factures.
+- `ventes/` : vues liees aux ventes.
+- `commun/` : connexion SQLite, base modele, styles et ressources communes.
 
-## Règle de stock (énoncé)
-
-- Vente : `StockActuel = StockActuel - Sortie`
-- Suppression d'une vente : `StockActuel = StockActuel + Sortie`
+Ne poussez jamais de base utilisateur, sauvegarde ou donnees personnelles. Pour partager des donnees entre plusieurs installations, il faudra un service de base de donnees distant; la base SQLite locale n'est pas un mecanisme de synchronisation.

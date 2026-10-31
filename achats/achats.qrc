@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/achats">
+        <file>assets/logo.svg</file>
+        <file>assets/icone-panier.svg</file>
+        <file>assets/loupe.svg</file>
+        <file>assets/btn-plus.svg</file>
+        <file>assets/btn-crayon.svg</file>
+        <file>assets/btn-document.svg</file>
+        <file>assets/btn-corbeille.svg</file>
+        <file>assets/corbeille-rouge.svg</file>
+    </qresource>
+</RCC>

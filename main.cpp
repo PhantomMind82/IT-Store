@@ -7,6 +7,7 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
+    a.setApplicationName(QStringLiteral("GestionVente"));
 
     if (!Database::ouvrir()) {
         QMessageBox::critical(nullptr, "Erreur", "Impossible d'ouvrir la base de données.");
