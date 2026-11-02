@@ -1,5 +1,5 @@
-D:/Avenement/Client/IT-Store/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/GestionVente_autogen/IN7FMD4PO7/moc_nouveauachat.cpp: D:/Avenement/Client/IT-Store/achats/nouveau/nouveauachat.h \
-  D:/Avenement/Client/IT-Store/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/GestionVente_autogen/moc_predefs.h \
+D:/IT-Store/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/GestionVente_autogen/IN7FMD4PO7/moc_nouveauachat.cpp: D:/IT-Store/achats/nouveau/nouveauachat.h \
+  D:/IT-Store/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/GestionVente_autogen/moc_predefs.h \
   C:/Qt/6.12.0/mingw_64/include/QtCore/QVector \
   C:/Qt/6.12.0/mingw_64/include/QtCore/q17memory.h \
   C:/Qt/6.12.0/mingw_64/include/QtCore/q20bit.h \

@@ -3,12 +3,19 @@
 #include <QSqlError>
 #include <QSqlQuery>
 
+Materiel::Materiel(const QString &numero, const QString &designation, double prix,
+                                     int stockCourant, int stockInitial)
+        : num(numero), design(designation), pu(prix),
+            stockInit(stockInitial), stockActuel(stockCourant)
+{
+}
+
 bool Materiel::ajouter(QString &erreur) const
 {
     QSqlQuery q;
-    q.prepare("INSERT INTO materiel (numMat, design, pu, stockInit, stockActuel) "
+    q.prepare("INSERT INTO materiel (id_materiel, designation, prix_unitaire, stock_initial, stock_actuel) "
               "VALUES (:n, :d, :p, :s, :s)");
-    q.bindValue(":n", num);
+    q.bindValue(":n", num.toInt());
     q.bindValue(":d", design);
     q.bindValue(":p", pu);
     q.bindValue(":s", stockInit);
@@ -22,13 +29,13 @@ bool Materiel::ajouter(QString &erreur) const
 bool Materiel::modifier(QString &erreur) const
 {
     QSqlQuery q;
-    q.prepare("UPDATE materiel SET design = :d, pu = :p, "
-              "stockInit = stockInit + (:s - stockActuel), "
-              "stockActuel = :s WHERE numMat = :n");
+    q.prepare("UPDATE materiel SET designation = :d, prix_unitaire = :p, "
+              "stock_initial = stock_initial + (:s - stock_actuel), "
+              "stock_actuel = :s WHERE id_materiel = :n");
     q.bindValue(":d", design);
     q.bindValue(":p", pu);
     q.bindValue(":s", stockActuel);
-    q.bindValue(":n", num);
+    q.bindValue(":n", num.toInt());
     if (!q.exec()) {
         erreur = q.lastError().text();
         return false;
@@ -43,8 +50,8 @@ bool Materiel::modifier(QString &erreur) const
 bool Materiel::supprimer(const QString &num, QString &erreur)
 {
     QSqlQuery q;
-    q.prepare("DELETE FROM materiel WHERE numMat = :n");
-    q.bindValue(":n", num);
+    q.prepare("DELETE FROM materiel WHERE id_materiel = :n");
+    q.bindValue(":n", num.toInt());
     if (!q.exec()) {
         erreur = "Ce matériel a des achats enregistrés. Supprime d'abord ces achats.";
         return false;
@@ -59,7 +66,7 @@ bool Materiel::supprimer(const QString &num, QString &erreur)
 bool Materiel::existe(const QString &design)
 {
     QSqlQuery q;
-    q.prepare("SELECT 1 FROM materiel WHERE design = :d COLLATE NOCASE");
+    q.prepare("SELECT 1 FROM materiel WHERE designation = :d COLLATE NOCASE");
     q.bindValue(":d", design);
     q.exec();
     return q.next();
@@ -67,23 +74,23 @@ bool Materiel::existe(const QString &design)
 
 QString Materiel::prochainNumero()
 {
-    QSqlQuery q("SELECT MAX(CAST(SUBSTR(numMat, 4) AS INTEGER)) FROM materiel "
-                "WHERE numMat LIKE 'MAT%'");
-    int n = 0;
+    QSqlQuery q("SELECT COALESCE(MAX(id_materiel), 0) + 1 FROM materiel");
+    int n = 1;
     if (q.next())
         n = q.value(0).toInt();
-    return QString("MAT%1").arg(n + 1, 3, 10, QChar('0'));
+    return QString::number(n);
 }
 
 bool Materiel::chercher(const QString &texte, bool critereNom, Materiel &r)
 {
     QSqlQuery q;
     if (critereNom)
-        q.prepare("SELECT numMat, design, pu, stockInit, stockActuel FROM materiel "
-                  "WHERE design LIKE :t ORDER BY design LIMIT 1");
+        q.prepare("SELECT id_materiel, designation, prix_unitaire, stock_initial, stock_actuel "
+                  "FROM materiel WHERE designation LIKE :t ORDER BY designation LIMIT 1");
     else
-        q.prepare("SELECT numMat, design, pu, stockInit, stockActuel FROM materiel "
-                  "WHERE numMat LIKE :t ORDER BY numMat LIMIT 1");
+        q.prepare("SELECT id_materiel, designation, prix_unitaire, stock_initial, stock_actuel "
+                  "FROM materiel WHERE printf('MAT%03d', id_materiel) LIKE :t "
+                  "ORDER BY id_materiel LIMIT 1");
     q.bindValue(":t", "%" + texte + "%");
     q.exec();
 

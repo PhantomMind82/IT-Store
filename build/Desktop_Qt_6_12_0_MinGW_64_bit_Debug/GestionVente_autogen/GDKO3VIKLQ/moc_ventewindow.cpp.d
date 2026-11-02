@@ -1,5 +1,6 @@
-D:/Avenement/Client/IT-Store/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/GestionVente_autogen/GDKO3VIKLQ/moc_ventewindow.cpp: D:/Avenement/Client/IT-Store/ventes/ventewindow.h \
-  D:/Avenement/Client/IT-Store/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/GestionVente_autogen/moc_predefs.h \
+D:/IT-Store/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/GestionVente_autogen/GDKO3VIKLQ/moc_ventewindow.cpp: D:/IT-Store/ventes/ventewindow.h \
+  D:/IT-Store/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/GestionVente_autogen/moc_predefs.h \
+  C:/Qt/6.12.0/mingw_64/include/QtCore/QString \
   C:/Qt/6.12.0/mingw_64/include/QtCore/q17memory.h \
   C:/Qt/6.12.0/mingw_64/include/QtCore/q20bit.h \
   C:/Qt/6.12.0/mingw_64/include/QtCore/q20functional.h \

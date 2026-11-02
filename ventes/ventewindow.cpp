@@ -121,7 +121,7 @@ VenteWindow::VenteWindow(QWidget *parent)
     appliquerStyleRecherche();
 
     rechercheClient = new QLineEdit;
-    rechercheClient->setPlaceholderText("Ex : CL001");
+    rechercheClient->setPlaceholderText("Ex : 001 ou CL001");
     rechercheClient->setMinimumHeight(40);
 
     btnRechercher = new QPushButton("🔍  Rechercher");
@@ -174,7 +174,7 @@ VenteWindow::VenteWindow(QWidget *parent)
     periodeTitre->setFont(sousTitreFont);
 
     periodeCombo = new QComboBox;
-    periodeCombo->addItems({"Entre 2 dates", "Un mois", "Une année"});
+    periodeCombo->addItems({"Toutes les dates", "Entre 2 dates", "Un mois", "Une année"});
     periodeCombo->setCurrentIndex(0);
 
     dateDebut = new QDateEdit(QDate::currentDate());
@@ -337,12 +337,17 @@ VenteWindow::VenteWindow(QWidget *parent)
     connect(periodeCombo, &QComboBox::currentTextChanged,
             this, [this](const QString &periode)
             {
+                const bool toutesDates = (periode == "Toutes les dates");
                 bool entreDeuxDates = (periode == "Entre 2 dates");
 
-                dateDebut->setEnabled(true);
+                dateDebut->setEnabled(!toutesDates);
                 dateFin->setEnabled(entreDeuxDates);
 
-                if (periode == "Entre 2 dates") {
+                if (toutesDates) {
+                    dateDebut->setDisplayFormat("dd/MM/yyyy");
+                    dateFin->setDisplayFormat("dd/MM/yyyy");
+                }
+                else if (periode == "Entre 2 dates") {
                     dateDebut->setDisplayFormat("dd/MM/yyyy");
                     dateFin->setDisplayFormat("dd/MM/yyyy");
                 }
@@ -384,7 +389,7 @@ VenteWindow::VenteWindow(QWidget *parent)
 
         QString html = "<h2>Matériels vendus à un client</h2>";
         html += "<p><b>Client :</b> " + nomClientActuel.toHtmlEscaped()
-                + " (" + numClientActuel.toHtmlEscaped() + ")</p>";
+            + " (" + clientNumero->text().toHtmlEscaped() + ")</p>";
         html += "<table border='1' cellspacing='0' cellpadding='5' width='100%'>";
         html += "<tr><th>#</th><th>Désignation</th><th>PU (Ar)</th><th>Quantité</th>"
                 "<th>Montant (Ar)</th><th>Date d'achat</th></tr>";
@@ -400,7 +405,7 @@ VenteWindow::VenteWindow(QWidget *parent)
         html += "</table><p><b>" + totalGeneral->text().toHtmlEscaped() + "</b></p>";
 
         QString chemin = QFileDialog::getSaveFileName(
-            this, "Exporter les ventes", "ventes_" + numClientActuel + ".csv",
+            this, "Exporter les ventes", "ventes_" + clientNumero->text() + ".csv",
             "Fichier CSV (*.csv);;Fichier HTML (*.html);;Tous les fichiers (*)");
         if (chemin.isEmpty())
             return;
@@ -443,6 +448,9 @@ QString VenteWindow::conditionDateSql() const
 {
     const QString periode = periodeCombo->currentText();
 
+    if (periode == "Toutes les dates")
+        return QString();
+
     if (periode == "Entre 2 dates") {
         return " AND date(a.date_achat) BETWEEN date(:dateDebut) "
                "AND date(:dateFin)";
@@ -475,10 +483,22 @@ void VenteWindow::rechercherClient()
 
     QSqlQuery query;
     if (btnRechercheNumero->isChecked()) {
-        query.prepare("SELECT numClient, nom FROM Client WHERE numClient = :valeur");
-        query.bindValue(":valeur", saisie);
+        QString numero = saisie.trimmed();
+        if (numero.startsWith("CL", Qt::CaseInsensitive))
+            numero.remove(0, 2);
+
+        bool numeroValide = false;
+        const int idClient = numero.toInt(&numeroValide);
+        if (!numeroValide || idClient <= 0) {
+            QMessageBox::warning(this, "Recherche",
+                                 "Saisissez un numéro client comme 001 ou CL001.");
+            return;
+        }
+
+        query.prepare("SELECT id_client, nom FROM client WHERE id_client = :valeur");
+        query.bindValue(":valeur", idClient);
     } else {
-        query.prepare("SELECT numClient, nom FROM Client WHERE nom LIKE :valeur COLLATE NOCASE "
+        query.prepare("SELECT id_client, nom FROM client WHERE nom LIKE :valeur COLLATE NOCASE "
                       "ORDER BY nom LIMIT 1");
         query.bindValue(":valeur", "%" + saisie + "%");
     }
@@ -496,9 +516,9 @@ void VenteWindow::rechercherClient()
         return;
     }
 
-    numClientActuel = query.value("numClient").toString();
+    numClientActuel = query.value("id_client").toString();
     nomClientActuel = query.value("nom").toString();
-    clientNumero->setText(numClientActuel);
+    clientNumero->setText(QStringLiteral("CL%1").arg(numClientActuel.toInt(), 3, 10, QChar('0')));
     clientNom->setText(nomClientActuel);
     chargerVentes(numClientActuel);
 }
@@ -513,15 +533,15 @@ void VenteWindow::chargerVentes(const QString &numClient)
     }
 
     QString sql = R"(
-        SELECT m.design, m.pu, a.qte,
-               (m.pu * a.qte) AS montant,
+         SELECT m.designation, a.prix_unitaire_achat AS prix_unitaire_achat, a.qte,
+             (a.prix_unitaire_achat * a.qte) AS montant,
                a.date_achat
-        FROM Achat AS a
-        INNER JOIN Materiel AS m ON m.numMat = a.numMat
-        WHERE a.numClient = :numClient
+         FROM achat AS a
+         INNER JOIN materiel AS m ON m.id_materiel = a.id_materiel
+         WHERE a.id_client = :numClient
     )";
     sql += conditionDateSql();
-    sql += " ORDER BY date(a.date_achat) DESC, a.id DESC";
+    sql += " ORDER BY date(a.date_achat) DESC, a.id_achat DESC";
 
     QSqlQuery query;
     query.prepare(sql);
@@ -559,8 +579,8 @@ void VenteWindow::chargerVentes(const QString &numClient)
     int numeroLigne = 0;
 
     while (query.next()) {
-        const QString designation = query.value("design").toString();
-        const double prixUnitaire = query.value("pu").toDouble();
+        const QString designation = query.value("designation").toString();
+        const double prixUnitaire = query.value("prix_unitaire_achat").toDouble();
         const int quantite = query.value("qte").toInt();
         const double montant = query.value("montant").toDouble();
         const QString dateSql = query.value("date_achat").toString();

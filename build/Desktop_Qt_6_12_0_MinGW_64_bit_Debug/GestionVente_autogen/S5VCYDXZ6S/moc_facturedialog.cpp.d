@@ -1,5 +1,5 @@
-D:/Avenement/Client/IT-Store/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/GestionVente_autogen/S5VCYDXZ6S/moc_facturedialog.cpp: D:/Avenement/Client/IT-Store/achats/facture/facturedialog.h \
-  D:/Avenement/Client/IT-Store/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/GestionVente_autogen/moc_predefs.h \
+D:/IT-Store/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/GestionVente_autogen/S5VCYDXZ6S/moc_facturedialog.cpp: D:/IT-Store/achats/facture/facturedialog.h \
+  D:/IT-Store/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/GestionVente_autogen/moc_predefs.h \
   C:/Qt/6.12.0/mingw_64/include/QtCore/QDate \
   C:/Qt/6.12.0/mingw_64/include/QtCore/QList \
   C:/Qt/6.12.0/mingw_64/include/QtCore/QString \
@@ -391,7 +391,7 @@ D:/Avenement/Client/IT-Store/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/GestionV
   C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/time.h \
   C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/vadefs.h \
   C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/wchar.h \
-  D:/Avenement/Client/IT-Store/achats/achat.h \
-  D:/Avenement/Client/IT-Store/clients/client.h \
-  D:/Avenement/Client/IT-Store/commun/modeles.h \
-  D:/Avenement/Client/IT-Store/materiels/materiel.h
+  D:/IT-Store/achats/achat.h \
+  D:/IT-Store/clients/client.h \
+  D:/IT-Store/commun/modeles.h \
+  D:/IT-Store/materiels/materiel.h

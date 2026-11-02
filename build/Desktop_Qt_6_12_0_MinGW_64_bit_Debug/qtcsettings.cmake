@@ -7,7 +7,7 @@ set("CMAKE_C_COMPILER" "C:/Qt/Tools/mingw1310_64/bin/gcc.exe" CACHE "FILEPATH" "
 set("CMAKE_GENERATOR" "Ninja" CACHE "STRING" "" FORCE)
 set("CMAKE_MAKE_PROGRAM" "C:/msys64/ucrt64/bin/ninja.exe" CACHE "STRING" "" FORCE)
 set("CMAKE_PREFIX_PATH" "C:/Qt/6.12.0/mingw_64" CACHE "PATH" "" FORCE)
-set("CMAKE_PROJECT_INCLUDE_BEFORE" "D:/Avenement/Client/IT-Store/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qtcreator/cmake-helper/qtcreator-project.cmake" CACHE "FILEPATH" "" FORCE)
+set("CMAKE_PROJECT_INCLUDE_BEFORE" "D:/IT-Store/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qtcreator/cmake-helper/qtcreator-project.cmake" CACHE "FILEPATH" "" FORCE)
 set("QT_CREATOR_ENABLE_MAINTENANCE_TOOL_PROVIDER" "ON" CACHE "BOOL" "" FORCE)
 set("QT_CREATOR_ENABLE_PACKAGE_MANAGER_SETUP" "ON" CACHE "BOOL" "" FORCE)
 set("QT_ENABLE_QML_DEBUG" "ON" CACHE "BOOL" "" FORCE)

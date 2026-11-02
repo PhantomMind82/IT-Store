@@ -1,5 +1,5 @@
-D:/Avenement/Client/IT-Store/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/GestionVente_autogen/UYX5XTB5RZ/moc_mainwindow.cpp: D:/Avenement/Client/IT-Store/ui/mainwindow.h \
-  D:/Avenement/Client/IT-Store/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/GestionVente_autogen/moc_predefs.h \
+D:/IT-Store/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/GestionVente_autogen/UYX5XTB5RZ/moc_mainwindow.cpp: D:/IT-Store/ui/mainwindow.h \
+  D:/IT-Store/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/GestionVente_autogen/moc_predefs.h \
   C:/Qt/6.12.0/mingw_64/include/QtCore/q17memory.h \
   C:/Qt/6.12.0/mingw_64/include/QtCore/q20bit.h \
   C:/Qt/6.12.0/mingw_64/include/QtCore/q20functional.h \

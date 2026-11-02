@@ -288,7 +288,7 @@
 #define __LONG_MAX__ 0x7fffffffL
 #define __FLT64X_HAS_DENORM__ 1
 #define __DEC128_SUBNORMAL_MIN__ 0.000000000000000000000000000000001E-6143DL
-#define DB_PATH "D:/Avenement/Client/IT-Store/data/itstore.db"
+#define DB_PATH "D:/IT-Store/commun/itstore.db"
 #define __FLT_HAS_INFINITY__ 1
 #define __GNUC_EXECUTION_CHARSET_NAME "UTF-8"
 #define __cpp_unicode_literals 200710L
@@ -406,7 +406,7 @@
 #define __STDCPP_THREADS__ 1
 #define __BFLT16_HAS_DENORM__ 1
 #define __GNUC_STDC_INLINE__ 1
-#define STYLES_DIR "D:/Avenement/Client/IT-Store/styles"
+#define STYLES_DIR "D:/IT-Store/styles"
 #define __FLT64_HAS_DENORM__ 1
 #define __FLT32_EPSILON__ 1.19209289550781250000000000000000000e-7F32
 #define __FLT16_HAS_DENORM__ 1

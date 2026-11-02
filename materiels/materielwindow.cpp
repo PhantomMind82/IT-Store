@@ -28,6 +28,11 @@
 
 static const QString DEVISE = " Ar";
 
+static QString numeroAffiche(const QString &id)
+{
+    return QStringLiteral("MAT%1").arg(id.toInt(), 3, 10, QChar('0'));
+}
+
 MaterielWindow::MaterielWindow(QWidget *parent)
     : QDialog(parent)
 {
@@ -236,7 +241,8 @@ void MaterielWindow::ajouter()
         return;
     }
 
-    QMessageBox::information(this, "Succès", "Matériel enregistré sous le numéro " + m.num);
+    QMessageBox::information(this, "Succès",
+                             "Matériel enregistré sous le numéro " + numeroAffiche(m.num));
     reinitAjout();
     charger();
 }
@@ -257,8 +263,9 @@ void MaterielWindow::charger()
     QSqlQuery q;
 
 
-    q.prepare("SELECT numMat, design, pu, stockInit, stockActuel FROM materiel "
-              "WHERE design LIKE :t1 OR numMat LIKE :t2 ORDER BY numMat");
+    q.prepare("SELECT id_materiel, designation, prix_unitaire, stock_initial, stock_actuel "
+              "FROM materiel WHERE designation LIKE :t1 "
+              "OR printf('MAT%03d', id_materiel) LIKE :t2 ORDER BY id_materiel");
 
 
     q.bindValue(":t1", t);
@@ -267,7 +274,8 @@ void MaterielWindow::charger()
 
     table->setRowCount(0);
     while (q.next()) {
-        const QString num = q.value(0).toString();
+        const QString id = q.value(0).toString();
+        const QString num = numeroAffiche(id);
         const QString nom = q.value(1).toString();
         const double pu = q.value(2).toDouble();
         const int init = q.value(3).toInt();
@@ -287,7 +295,9 @@ void MaterielWindow::charger()
         table->setItem(r, 4, new QTableWidgetItem);
         table->item(r, 4)->setFlags(Qt::NoItemFlags);
 
-        table->setItem(r, 0, new QTableWidgetItem(num));
+        auto *itemNumero = new QTableWidgetItem(num);
+        itemNumero->setData(Qt::UserRole, id);
+        table->setItem(r, 0, itemNumero);
         table->setItem(r, 1, new QTableWidgetItem(nom));
         table->setItem(r, 2, itPu);
         table->setItem(r, 3, itInit);
@@ -321,19 +331,20 @@ void MaterielWindow::charger()
         table->setCellWidget(r, 5, actions);
 
         connect(btnMod, &QPushButton::clicked, this, [this, r]() { editerLigne(r); });
-        connect(btnSup, &QPushButton::clicked, this, [this, num]() { supprimerLigne(num); });
+        connect(btnSup, &QPushButton::clicked, this, [this, id]() { supprimerLigne(id); });
     }
 }
 
 // ---------------- Modification directement dans la ligne ----------------
 void MaterielWindow::editerLigne(int ligne)
 {
-    const QString num = table->item(ligne, 0)->text();
+    const QString num = table->item(ligne, 0)->data(Qt::UserRole).toString();
 
     // Valeurs actuelles lues dans la base (pas dans le texte formaté)
     QSqlQuery q;
-    q.prepare("SELECT design, pu, stockActuel FROM materiel WHERE numMat = :n");
-    q.bindValue(":n", num);
+    q.prepare("SELECT designation, prix_unitaire, stock_actuel "
+              "FROM materiel WHERE id_materiel = :n");
+    q.bindValue(":n", num.toInt());
     q.exec();
     if (!q.next())
         return;
@@ -423,7 +434,7 @@ void MaterielWindow::editerLigne(int ligne)
 void MaterielWindow::supprimerLigne(const QString &num)
 {
     if (QMessageBox::question(this, "Confirmation",
-                              "Supprimer le matériel " + num + " ?") != QMessageBox::Yes)
+                              "Supprimer le matériel " + numeroAffiche(num) + " ?") != QMessageBox::Yes)
         return;
 
     QString erreur;
@@ -451,7 +462,7 @@ void MaterielWindow::exporterPdf()
                                                         "<tr bgcolor='#dddddd'><th align='left'>DESIGNATION</th>"
                                                         "<th align='right'>STOCK</th></tr>";
 
-    QSqlQuery q("SELECT design, stockActuel FROM materiel ORDER BY design");
+    QSqlQuery q("SELECT designation, stock_actuel FROM materiel ORDER BY designation");
     while (q.next()) {
         html += "<tr><td>" + q.value(0).toString().toHtmlEscaped() + "</td>"
                                                                      "<td align='right'>" + q.value(1).toString() + "</td></tr>";

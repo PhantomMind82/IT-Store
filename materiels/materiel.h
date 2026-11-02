@@ -4,6 +4,10 @@
 class Materiel
 {
 public:
+    Materiel() = default;
+    Materiel(const QString &num, const QString &design, double pu,
+             int stockActuel, int stockInit);
+
     QString num;
     QString design;
     double pu = 0;

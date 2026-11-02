@@ -1,19 +1,19 @@
 {
 	"AUTOGEN_COMMAND_LINE_LENGTH_MAX" : 32000,
-	"BUILD_DIR" : "D:/Avenement/Client/IT-Store/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/GestionVente_autogen",
-	"CMAKE_BINARY_DIR" : "D:/Avenement/Client/IT-Store/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug",
-	"CMAKE_CURRENT_BINARY_DIR" : "D:/Avenement/Client/IT-Store/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug",
-	"CMAKE_CURRENT_SOURCE_DIR" : "D:/Avenement/Client/IT-Store",
+	"BUILD_DIR" : "D:/IT-Store/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/GestionVente_autogen",
+	"CMAKE_BINARY_DIR" : "D:/IT-Store/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug",
+	"CMAKE_CURRENT_BINARY_DIR" : "D:/IT-Store/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug",
+	"CMAKE_CURRENT_SOURCE_DIR" : "D:/IT-Store",
 	"CMAKE_EXECUTABLE" : "C:/Qt/Tools/CMake_64/bin/cmake.exe",
 	"CMAKE_LIST_FILES" : 
 	[
-		"D:/Avenement/Client/IT-Store/CMakeLists.txt",
-		"D:/Avenement/Client/IT-Store/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qtcreator/cmake-helper/qtcreator-project.cmake",
-		"D:/Avenement/Client/IT-Store/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qtcreator/cmake-helper/package-manager.cmake",
+		"D:/IT-Store/CMakeLists.txt",
+		"D:/IT-Store/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qtcreator/cmake-helper/qtcreator-project.cmake",
+		"D:/IT-Store/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qtcreator/cmake-helper/package-manager.cmake",
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeDetermineSystem.cmake",
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeSystem.cmake.in",
-		"D:/Avenement/Client/IT-Store/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/CMakeFiles/3.30.5/CMakeSystem.cmake",
-		"D:/Avenement/Client/IT-Store/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qtcreator/cmake-helper/maintenance_tool_provider.cmake",
+		"D:/IT-Store/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/CMakeFiles/3.30.5/CMakeSystem.cmake",
+		"D:/IT-Store/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/.qtcreator/cmake-helper/maintenance_tool_provider.cmake",
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeSystemSpecificInitialize.cmake",
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Platform/Windows-Initialize.cmake",
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeDetermineCXXCompiler.cmake",
@@ -66,7 +66,7 @@
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeFindBinUtils.cmake",
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Compiler/GNU-FindBinUtils.cmake",
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeCXXCompiler.cmake.in",
-		"D:/Avenement/Client/IT-Store/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/CMakeFiles/3.30.5/CMakeCXXCompiler.cmake",
+		"D:/IT-Store/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/CMakeFiles/3.30.5/CMakeCXXCompiler.cmake",
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeSystemSpecificInformation.cmake",
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeGenericSystem.cmake",
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeInitializeConfigs.cmake",
@@ -81,7 +81,7 @@
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Platform/Windows-GNU.cmake",
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeDetermineRCCompiler.cmake",
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeRCCompiler.cmake.in",
-		"D:/Avenement/Client/IT-Store/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/CMakeFiles/3.30.5/CMakeRCCompiler.cmake",
+		"D:/IT-Store/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/CMakeFiles/3.30.5/CMakeRCCompiler.cmake",
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeRCInformation.cmake",
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Platform/Windows-windres.cmake",
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeTestRCCompiler.cmake",
@@ -98,7 +98,7 @@
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeDetermineCompilerSupport.cmake",
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Internal/FeatureTesting.cmake",
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeCXXCompiler.cmake.in",
-		"D:/Avenement/Client/IT-Store/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/CMakeFiles/3.30.5/CMakeCXXCompiler.cmake",
+		"D:/IT-Store/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/CMakeFiles/3.30.5/CMakeCXXCompiler.cmake",
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Platform/Windows-GNU-CXX-ABI.cmake",
 		"C:/Qt/6.12.0/mingw_64/lib/cmake/Qt6Core/Qt6CoreConfigVersion.cmake",
 		"C:/Qt/6.12.0/mingw_64/lib/cmake/Qt6Core/Qt6CoreConfigVersionImpl.cmake",
@@ -463,156 +463,145 @@
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeFindDependencyMacro.cmake",
 		"C:/Qt/6.12.0/mingw_64/lib/cmake/Qt6/Qt6Dependencies.cmake",
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/GNUInstallDirs.cmake",
-		"D:/Avenement/Client/IT-Store/commun/itstore.db",
 		"C:/Qt/6.12.0/mingw_64/lib/cmake/Qt6/windows/app.exe.manifest.in",
-		"D:/Avenement/Client/IT-Store/commun/factures/factures.qrc",
-		"D:/Avenement/Client/IT-Store/achats/achats.qrc"
+		"D:/IT-Store/commun/factures/factures.qrc",
+		"D:/IT-Store/achats/achats.qrc"
 	],
-	"CMAKE_SOURCE_DIR" : "D:/Avenement/Client/IT-Store",
+	"CMAKE_SOURCE_DIR" : "D:/IT-Store",
 	"CROSS_CONFIG" : false,
-	"DEP_FILE" : "D:/Avenement/Client/IT-Store/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/GestionVente_autogen/deps",
+	"DEP_FILE" : "D:/IT-Store/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/GestionVente_autogen/deps",
 	"DEP_FILE_RULE_NAME" : "GestionVente_autogen/timestamp",
 	"HEADERS" : 
 	[
+		[ "D:/IT-Store/achats/achat.h", "MU", "E4SQMGRMLH/moc_achat.cpp", null ],
 		[
-			"D:/Avenement/Client/IT-Store/achats/achat.h",
-			"MU",
-			"E4SQMGRMLH/moc_achat.cpp",
-			null
-		],
-		[
-			"D:/Avenement/Client/IT-Store/achats/achatstyle.h",
+			"D:/IT-Store/achats/achatstyle.h",
 			"MU",
 			"E4SQMGRMLH/moc_achatstyle.cpp",
 			null
 		],
 		[
-			"D:/Avenement/Client/IT-Store/achats/achatsui.h",
+			"D:/IT-Store/achats/achatsui.h",
 			"MU",
 			"E4SQMGRMLH/moc_achatsui.cpp",
 			null
 		],
 		[
-			"D:/Avenement/Client/IT-Store/achats/achatwindow.h",
+			"D:/IT-Store/achats/achatwindow.h",
 			"MU",
 			"E4SQMGRMLH/moc_achatwindow.cpp",
 			null
 		],
 		[
-			"D:/Avenement/Client/IT-Store/achats/facture/facture.h",
+			"D:/IT-Store/achats/facture/facture.h",
 			"MU",
 			"S5VCYDXZ6S/moc_facture.cpp",
 			null
 		],
 		[
-			"D:/Avenement/Client/IT-Store/achats/facture/facturedialog.h",
+			"D:/IT-Store/achats/facture/facturedialog.h",
 			"MU",
 			"S5VCYDXZ6S/moc_facturedialog.cpp",
 			null
 		],
 		[
-			"D:/Avenement/Client/IT-Store/achats/facture/nombreenlettres.h",
+			"D:/IT-Store/achats/facture/nombreenlettres.h",
 			"MU",
 			"S5VCYDXZ6S/moc_nombreenlettres.cpp",
 			null
 		],
 		[
-			"D:/Avenement/Client/IT-Store/achats/logowidget.h",
+			"D:/IT-Store/achats/logowidget.h",
 			"MU",
 			"E4SQMGRMLH/moc_logowidget.cpp",
 			null
 		],
 		[
-			"D:/Avenement/Client/IT-Store/achats/nouveau/nouveauachat.h",
+			"D:/IT-Store/achats/nouveau/nouveauachat.h",
 			"MU",
 			"IN7FMD4PO7/moc_nouveauachat.cpp",
 			null
 		],
 		[
-			"D:/Avenement/Client/IT-Store/achats/nouveau/nouveauachatdialog.h",
+			"D:/IT-Store/achats/nouveau/nouveauachatdialog.h",
 			"MU",
 			"IN7FMD4PO7/moc_nouveauachatdialog.cpp",
 			null
 		],
 		[
-			"D:/Avenement/Client/IT-Store/achats/suppression/supprimerachat.h",
+			"D:/IT-Store/achats/suppression/supprimerachat.h",
 			"MU",
 			"2POIT6OUA7/moc_supprimerachat.cpp",
 			null
 		],
 		[
-			"D:/Avenement/Client/IT-Store/achats/suppression/supprimerachatdialog.h",
+			"D:/IT-Store/achats/suppression/supprimerachatdialog.h",
 			"MU",
 			"2POIT6OUA7/moc_supprimerachatdialog.cpp",
 			null
 		],
 		[
-			"D:/Avenement/Client/IT-Store/clients/client.h",
+			"D:/IT-Store/clients/client.h",
 			"MU",
 			"JKJ2LSSFSJ/moc_client.cpp",
 			null
 		],
 		[
-			"D:/Avenement/Client/IT-Store/clients/clientwindow.h",
+			"D:/IT-Store/clients/clientwindow.h",
 			"MU",
 			"JKJ2LSSFSJ/moc_clientwindow.cpp",
 			null
 		],
 		[
-			"D:/Avenement/Client/IT-Store/commun/database.h",
+			"D:/IT-Store/commun/database.h",
 			"MU",
 			"CVMLIAGIUT/moc_database.cpp",
 			null
 		],
 		[
-			"D:/Avenement/Client/IT-Store/commun/modeles.h",
+			"D:/IT-Store/commun/modeles.h",
 			"MU",
 			"CVMLIAGIUT/moc_modeles.cpp",
 			null
 		],
+		[ "D:/IT-Store/commun/style.h", "MU", "CVMLIAGIUT/moc_style.cpp", null ],
 		[
-			"D:/Avenement/Client/IT-Store/commun/style.h",
-			"MU",
-			"CVMLIAGIUT/moc_style.cpp",
-			null
-		],
-		[
-			"D:/Avenement/Client/IT-Store/materiels/materiel.h",
+			"D:/IT-Store/materiels/materiel.h",
 			"MU",
 			"TTF2CBD5IV/moc_materiel.cpp",
 			null
 		],
 		[
-			"D:/Avenement/Client/IT-Store/materiels/materielwindow.h",
+			"D:/IT-Store/materiels/materielwindow.h",
 			"MU",
 			"TTF2CBD5IV/moc_materielwindow.cpp",
 			null
 		],
 		[
-			"D:/Avenement/Client/IT-Store/ui/mainwindow.h",
+			"D:/IT-Store/ui/mainwindow.h",
 			"MU",
 			"UYX5XTB5RZ/moc_mainwindow.cpp",
 			null
 		],
 		[
-			"D:/Avenement/Client/IT-Store/ventes/ventes.h",
+			"D:/IT-Store/ventes/ventes.h",
 			"MU",
 			"GDKO3VIKLQ/moc_ventes.cpp",
 			null
 		],
 		[
-			"D:/Avenement/Client/IT-Store/ventes/ventewindow.h",
+			"D:/IT-Store/ventes/ventewindow.h",
 			"MU",
 			"GDKO3VIKLQ/moc_ventewindow.cpp",
 			null
 		]
 	],
 	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
-	"INCLUDE_DIR" : "D:/Avenement/Client/IT-Store/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/GestionVente_autogen/include",
-	"MOC_COMPILATION_FILE" : "D:/Avenement/Client/IT-Store/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/GestionVente_autogen/mocs_compilation.cpp",
+	"INCLUDE_DIR" : "D:/IT-Store/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/GestionVente_autogen/include",
+	"MOC_COMPILATION_FILE" : "D:/IT-Store/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/GestionVente_autogen/mocs_compilation.cpp",
 	"MOC_DEFINITIONS" : 
 	[
-		"DB_PATH=\"D:/Avenement/Client/IT-Store/data/itstore.db\"",
+		"DB_PATH=\"D:/IT-Store/commun/itstore.db\"",
 		"MINGW_HAS_SECURE_API=1",
 		"QT_CORE_LIB",
 		"QT_GUI_LIB",
@@ -621,7 +610,7 @@
 		"QT_SQL_LIB",
 		"QT_SVG_LIB",
 		"QT_WIDGETS_LIB",
-		"STYLES_DIR=\"D:/Avenement/Client/IT-Store/styles\"",
+		"STYLES_DIR=\"D:/IT-Store/styles\"",
 		"UNICODE",
 		"WIN32",
 		"WIN64",
@@ -638,7 +627,7 @@
 	],
 	"MOC_INCLUDES" : 
 	[
-		"D:/Avenement/Client/IT-Store",
+		"D:/IT-Store",
 		"C:/Qt/6.12.0/mingw_64/include/QtCore",
 		"C:/Qt/6.12.0/mingw_64/include",
 		"C:/Qt/6.12.0/mingw_64/mkspecs/win32-g++",
@@ -673,62 +662,38 @@
 		"-c",
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeCXXCompilerABI.cpp"
 	],
-	"MOC_PREDEFS_FILE" : "D:/Avenement/Client/IT-Store/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/GestionVente_autogen/moc_predefs.h",
+	"MOC_PREDEFS_FILE" : "D:/IT-Store/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/GestionVente_autogen/moc_predefs.h",
 	"MOC_RELAXED_MODE" : false,
 	"MOC_SKIP" : [],
 	"MULTI_CONFIG" : false,
 	"PARALLEL" : 2,
-	"PARSE_CACHE_FILE" : "D:/Avenement/Client/IT-Store/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/CMakeFiles/GestionVente_autogen.dir/ParseCache.txt",
+	"PARSE_CACHE_FILE" : "D:/IT-Store/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/CMakeFiles/GestionVente_autogen.dir/ParseCache.txt",
 	"QT_MOC_EXECUTABLE" : "C:/Qt/6.12.0/mingw_64/bin/moc.exe",
 	"QT_UIC_EXECUTABLE" : "C:/Qt/6.12.0/mingw_64/bin/uic.exe",
 	"QT_VERSION_MAJOR" : 6,
 	"QT_VERSION_MINOR" : 12,
-	"SETTINGS_FILE" : "D:/Avenement/Client/IT-Store/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/CMakeFiles/GestionVente_autogen.dir/AutogenUsed.txt",
+	"SETTINGS_FILE" : "D:/IT-Store/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug/CMakeFiles/GestionVente_autogen.dir/AutogenUsed.txt",
 	"SOURCES" : 
 	[
-		[ "D:/Avenement/Client/IT-Store/achats/achat.cpp", "MU", null ],
-		[ "D:/Avenement/Client/IT-Store/achats/achatsui.cpp", "MU", null ],
-		[ "D:/Avenement/Client/IT-Store/achats/achatwindow.cpp", "MU", null ],
-		[ "D:/Avenement/Client/IT-Store/achats/facture/facture.cpp", "MU", null ],
-		[
-			"D:/Avenement/Client/IT-Store/achats/facture/facturedialog.cpp",
-			"MU",
-			null
-		],
-		[ "D:/Avenement/Client/IT-Store/achats/logowidget.cpp", "MU", null ],
-		[
-			"D:/Avenement/Client/IT-Store/achats/nouveau/nouveauachat.cpp",
-			"MU",
-			null
-		],
-		[
-			"D:/Avenement/Client/IT-Store/achats/nouveau/nouveauachatdialog.cpp",
-			"MU",
-			null
-		],
-		[
-			"D:/Avenement/Client/IT-Store/achats/suppression/supprimerachat.cpp",
-			"MU",
-			null
-		],
-		[
-			"D:/Avenement/Client/IT-Store/achats/suppression/supprimerachatdialog.cpp",
-			"MU",
-			null
-		],
-		[ "D:/Avenement/Client/IT-Store/clients/client.cpp", "MU", null ],
-		[ "D:/Avenement/Client/IT-Store/clients/clientwindow.cpp", "MU", null ],
-		[ "D:/Avenement/Client/IT-Store/commun/database.cpp", "MU", null ],
-		[ "D:/Avenement/Client/IT-Store/main.cpp", "MU", null ],
-		[ "D:/Avenement/Client/IT-Store/materiels/materiel.cpp", "MU", null ],
-		[
-			"D:/Avenement/Client/IT-Store/materiels/materielwindow.cpp",
-			"MU",
-			null
-		],
-		[ "D:/Avenement/Client/IT-Store/ui/mainwindow.cpp", "MU", null ],
-		[ "D:/Avenement/Client/IT-Store/ventes/ventes.cpp", "MU", null ],
-		[ "D:/Avenement/Client/IT-Store/ventes/ventewindow.cpp", "MU", null ]
+		[ "D:/IT-Store/achats/achat.cpp", "MU", null ],
+		[ "D:/IT-Store/achats/achatsui.cpp", "MU", null ],
+		[ "D:/IT-Store/achats/achatwindow.cpp", "MU", null ],
+		[ "D:/IT-Store/achats/facture/facture.cpp", "MU", null ],
+		[ "D:/IT-Store/achats/facture/facturedialog.cpp", "MU", null ],
+		[ "D:/IT-Store/achats/logowidget.cpp", "MU", null ],
+		[ "D:/IT-Store/achats/nouveau/nouveauachat.cpp", "MU", null ],
+		[ "D:/IT-Store/achats/nouveau/nouveauachatdialog.cpp", "MU", null ],
+		[ "D:/IT-Store/achats/suppression/supprimerachat.cpp", "MU", null ],
+		[ "D:/IT-Store/achats/suppression/supprimerachatdialog.cpp", "MU", null ],
+		[ "D:/IT-Store/clients/client.cpp", "MU", null ],
+		[ "D:/IT-Store/clients/clientwindow.cpp", "MU", null ],
+		[ "D:/IT-Store/commun/database.cpp", "MU", null ],
+		[ "D:/IT-Store/main.cpp", "MU", null ],
+		[ "D:/IT-Store/materiels/materiel.cpp", "MU", null ],
+		[ "D:/IT-Store/materiels/materielwindow.cpp", "MU", null ],
+		[ "D:/IT-Store/ui/mainwindow.cpp", "MU", null ],
+		[ "D:/IT-Store/ventes/ventes.cpp", "MU", null ],
+		[ "D:/IT-Store/ventes/ventewindow.cpp", "MU", null ]
 	],
 	"UIC_OPTIONS" : [],
 	"UIC_SEARCH_PATHS" : [],

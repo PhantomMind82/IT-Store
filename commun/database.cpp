@@ -157,8 +157,14 @@ bool migrerAncienneBase(QSqlDatabase &db)
 bool Database::ouvrir()
 {
     QString cheminBaseProjet;
+#ifdef DB_PATH
+    const QString cheminConfigure = QStringLiteral(DB_PATH);
+    if (QFileInfo::exists(cheminConfigure))
+        cheminBaseProjet = QFileInfo(cheminConfigure).absoluteFilePath();
+#endif
+
     QDir dossierProjet(QCoreApplication::applicationDirPath());
-    for (int niveau = 0; niveau < 5; ++niveau) {
+    for (int niveau = 0; cheminBaseProjet.isEmpty() && niveau < 5; ++niveau) {
         const QString candidat = dossierProjet.filePath(QStringLiteral("commun/itstore.db"));
         if (QFileInfo::exists(candidat)) {
             cheminBaseProjet = QFileInfo(candidat).absoluteFilePath();
