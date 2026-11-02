@@ -14,6 +14,7 @@ Achat::Achat(int idAchat, const QString &numClient, const QString &nomClient,
       m_prixUnitaire(prixUnitaire),
       m_dateAchat(dateAchat)
 {
+  
 }
 
 int     Achat::idAchat() const         { return m_idAchat; }
