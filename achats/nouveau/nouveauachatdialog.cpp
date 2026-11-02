@@ -92,8 +92,8 @@ void NouveauAchatDialog::remplirMateriels()
     for (const Materiel &materiel : std::as_const(m_materiels)) {
         // Texte affiché : « Moniteur – 190 000 Ar » ; donnée cachée : le numéro du matériel.
         ui->comboMateriel->addItem(QStringLiteral("%1 – %2")
-                                       .arg(materiel.design(), AchatsUi::formatMontant(materiel.pu())),
-                                   materiel.numMat());
+                                       .arg(materiel.design, AchatsUi::formatMontant(materiel.pu)),
+                                   materiel.num);
     }
     ui->comboMateriel->setCurrentIndex(-1);
 }
@@ -137,7 +137,7 @@ const Materiel *NouveauAchatDialog::materielChoisi() const
 
     const QString numero = ui->comboMateriel->currentData().toString();
     for (const Materiel &materiel : m_materiels) {
-        if (materiel.numMat() == numero)
+        if (materiel.num == numero)
             return &materiel;
     }
     return nullptr;
@@ -148,7 +148,7 @@ int NouveauAchatDialog::quantiteDejaPrise() const
     // En modification, la quantité de l'achat d'origine a DÉJÀ été retirée du stock.
     // Si on garde le même matériel, on la « rend » avant de vérifier la nouvelle quantité.
     const Materiel *materiel = materielChoisi();
-    if (m_modeEdition && materiel && materiel->numMat() == m_achatInitial.numMat())
+    if (m_modeEdition && materiel && materiel->num == m_achatInitial.numMat())
         return m_achatInitial.qte();
     return 0;
 }
@@ -170,17 +170,17 @@ void NouveauAchatDialog::mettreAJourResume()
     }
 
     const int quantite = ui->spinQte->value();
-    const int stockApres = materiel->stockActuel() + quantiteDejaPrise() - quantite;
+    const int stockApres = materiel->stockActuel + quantiteDejaPrise() - quantite;
 
-    ui->labelStock->setText(QStringLiteral("Stock actuel : %1").arg(materiel->stockActuel()));
+    ui->labelStock->setText(QStringLiteral("Stock actuel : %1").arg(materiel->stockActuel));
     if (stockApres >= 0) {
         ui->labelStockInfo->setText(QStringLiteral("Le stock passera de %1 à %2")
-                                        .arg(materiel->stockActuel())
+                                        .arg(materiel->stockActuel)
                                         .arg(stockApres));
     } else {
         ui->labelStockInfo->setText(QStringLiteral("Stock insuffisant"));
     }
-    ui->labelMontantValeur->setText(AchatsUi::formatMontant(materiel->pu() * quantite));
+    ui->labelMontantValeur->setText(AchatsUi::formatMontant(materiel->pu * quantite));
 }
 
 QString NouveauAchatDialog::messageErreur() const
@@ -196,7 +196,7 @@ QString NouveauAchatDialog::messageErreur() const
                                      : QStringLiteral("Veuillez choisir un matériel.");
     }
 
-    const int disponible = materiel->stockActuel() + quantiteDejaPrise();
+    const int disponible = materiel->stockActuel + quantiteDejaPrise();
     if (ui->spinQte->value() > disponible) {
         return QStringLiteral("Stock insuffisant : %1 disponible(s) pour ce matériel.").arg(disponible);
     }
@@ -230,9 +230,9 @@ Achat NouveauAchatDialog::getAchat() const
 
     achat.setNumClient(client->numClient());
     achat.setNomClient(client->nom());
-    achat.setNumMat(materiel->numMat());
-    achat.setDesignationMat(materiel->design());
-    achat.setPrixUnitaire(materiel->pu());
+    achat.setNumMat(materiel->num);
+    achat.setDesignationMat(materiel->design);
+    achat.setPrixUnitaire(materiel->pu);
     achat.setQte(ui->spinQte->value());
     achat.setDateAchat(ui->dateEdit->date());
     return achat;
