@@ -1,31 +1,22 @@
 #pragma once
-
 #include <QString>
 
-/** Table Materiel (numMat, design, pu, stockActuel, stockInit) */
 class Materiel
 {
 public:
-    Materiel() = default;
-    Materiel(const QString &numMat, const QString &design, double pu,
-             int stockActuel, int stockInit);
+    QString num;
+    QString design;
+    double pu = 0;
+    int stockInit = 0;
+    int stockActuel = 0;
 
-    QString numMat() const;
-    QString design() const;
-    double  pu() const;
-    int     stockActuel() const;
-    int     stockInit() const;
+    // Retourne false en cas d'échec ; "erreur" contient le message
+    bool ajouter(QString &erreur) const;
+    bool modifier(QString &erreur) const;
+    static bool supprimer(const QString &num, QString &erreur);
 
-    void setNumMat(const QString &numMat);
-    void setDesign(const QString &design);
-    void setPu(double pu);
-    void setStockActuel(int stockActuel);
-    void setStockInit(int stockInit);
-
-private:
-    QString m_numMat;
-    QString m_design;
-    double  m_pu = 0.0;
-    int     m_stockActuel = 0;
-    int     m_stockInit = 0;
+    static bool existe(const QString &design);
+    static QString prochainNumero();
+    // critereNom = true : recherche par nom, sinon par numéro
+    static bool chercher(const QString &texte, bool critereNom, Materiel &resultat);
 };

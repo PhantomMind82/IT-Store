@@ -1,0 +1,88 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-6f152a76cdf3e9f0a15e.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "GestionVente",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "GestionVente::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-GestionVente-Debug-f1db7986cf7052f29de2.json",
+					"name" : "GestionVente",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "GestionVente_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-GestionVente_autogen-Debug-69fa2a3665e516cf25ab.json",
+					"name" : "GestionVente_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "GestionVente_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-GestionVente_autogen_timestamp_deps-Debug-d98d7df80b6a012d4c84.json",
+					"name" : "GestionVente_autogen_timestamp_deps",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "copy_styles::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-copy_styles-Debug-6f519f28044f2409a112.json",
+					"name" : "copy_styles",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "D:/Avenement/Client/IT-Store/build/Desktop_Qt_6_12_0_MinGW_64_bit_Debug",
+		"source" : "D:/Avenement/Client/IT-Store"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 7
+	}
+}
